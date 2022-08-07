@@ -1,0 +1,27 @@
+{
+  "name": "hamburger-rooftop-site",
+  "version": "0.0.0",
+  "description": "Hamburger Rooftop  Tage Site",
+  "author": "Joe Czarnecki <joe.czar@outlook.com>",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "nuxt": "3.0.0-rc.6",
+    "sass": "^1.54.3"
+  },
+  "dependencies": {
+    "@nuxtjs/sanity": "^1.2.3",
+    "@nuxtjs/style-resources": "^1.2.1",
+    "@rooftop/components": "^0.0.0",
+    "@rooftop/styles": "^0.0.0",
+    "@vueuse/core": "^9.1.0",
+    "@vueuse/nuxt": "^9.1.0",
+    "normalize-scss": "^7.0.1",
+    "sass-loader": "^13.0.2"
+  }
+}

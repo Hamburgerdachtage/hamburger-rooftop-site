@@ -1,0 +1,52 @@
+@import "normalize-scss";
+
+@import "./containers.scss";
+@import "./spaces.scss";
+@import "./fonts.scss";
+@import "./colors.scss";
+
+// global styles
+body {
+  margin: 0px;
+}
+.main-container {
+  max-width: $main-container;
+  padding: $space-default;
+  height: 100vh;
+}
+.magenta-text {
+  color: $magenta
+}
+
+.flex {
+  display:flex;
+  &-row {
+    display:flex;
+    flex-direction: row;
+    &-reverse {
+      display:flex;
+      flex-direction: row-reverse;
+    }
+  }
+  &-column {
+    display:flex;
+    flex-direction: column;
+    &-reverse {
+      display:flex;
+      flex-direction: column-reverse;
+    }
+    &-center {
+      justify-content: center;
+      &-all {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        > * {
+          margin:auto;
+        }
+      }
+    }
+  }
+ 
+}

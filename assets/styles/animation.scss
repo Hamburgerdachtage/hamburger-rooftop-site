@@ -1,0 +1,7 @@
+$global-animation-duration: 300ms;
+$global-animation-easing: ease-in-out;
+
+:export {
+  animationDuration: strip-unit($global-animation-duration);
+  animationEasing: $global-animation-easing;
+}
