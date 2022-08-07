@@ -17,8 +17,6 @@
   "dependencies": {
     "@nuxtjs/sanity": "^1.2.3",
     "@nuxtjs/style-resources": "^1.2.1",
-    "@rooftop/components": "^0.0.0",
-    "@rooftop/styles": "^0.0.0",
     "@vueuse/core": "^9.1.0",
     "@vueuse/nuxt": "^9.1.0",
     "normalize-scss": "^7.0.1",
