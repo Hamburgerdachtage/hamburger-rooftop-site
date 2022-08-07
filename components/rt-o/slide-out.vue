@@ -24,7 +24,7 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/index.scss";
 .slideout {
   position: absolute;
   top:-605px;
@@ -33,6 +33,11 @@ defineProps({
   height: 600px;
   width: 375px;
   transition:500ms ease-in-out;
+
+  @include breakpoint(mobile, down) {
+    height: 100vh;
+  width: 100vw;
+  }
   &.mint {
     background-color: $mint-light;
   }

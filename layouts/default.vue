@@ -31,7 +31,7 @@ const toggleNav = ()=>{
 @import "../assets/styles/index.scss";
 
 .default-layout {
-  margin: 0 auto;
+ 
   // height: 100vh;
 }
   

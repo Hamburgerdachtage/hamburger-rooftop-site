@@ -32,12 +32,22 @@ console.log("index sanity query", {headline, image, page, subline})
 <style scoped lang="scss">
 @import "../../assets/styles/index.scss";
 header.main-header {
+  @include breakpoint(mobile, down) {
+    flex-direction: column;
+  }
   >img {
     height: 370px;
     width: 370px;
+    @include breakpoint(mobile, down) {
+      height: 141px;
+      width: 141px;
+    }
   }
   >.headline-container {
     margin-top: $space-xxlarge;
+     @include breakpoint(mobile, down) {
+       margin-top: 0;
+     }
   }
 }
 </style>

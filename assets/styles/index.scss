@@ -11,8 +11,9 @@ body {
 }
 .main-container {
   max-width: $main-container;
-  padding: $space-default;
+  padding: 0 $space-default;
   height: 100vh;
+  margin: -54px auto 0 auto;
 }
 .magenta-text {
   color: $magenta
