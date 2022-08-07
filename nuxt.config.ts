@@ -12,7 +12,8 @@ export default defineNuxtConfig({
     },
   },
   css: [
-    '~/assets/styles/index.scss'
+    '~/assets/styles/index.scss',
+    '~/assets/styles/fonts.scss',
   ],
   modules: [
     '@nuxtjs/sanity', 

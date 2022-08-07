@@ -1,17 +1,19 @@
 @import "./colors.scss";
 @import "./breakpoints.scss";
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap');
+// @font-face {
+//   font-family: Barlow-Regular;
+//   src: url(~assets/fonts/Barlow-Regular.ttf), format('truetype');
+ 
+// }
+// @font-face {
+//   font-family: Barlow-SemiBold;
+//   src: url(~assets/fonts/Barlow-SemiBold.ttf), format('truetype');
+ 
+// }
 
-@font-face {
-  font-family: Barlow-Regular;
-  src: url(../fonts/Barlow-Regular.ttf);
-}
-@font-face {
-  font-family: Barlow-SemiBold;
-  src: url(../fonts/Barlow-SemiBold.ttf);
-}
-
-$font-regular: Barlow-Regular;
-$font-bold: Barlow-SemiBold;
+$font-regular: Barlow ;
+$font-bold: Barlow;
 $font-sizes: (
   h1: 52pt,
   h2: 40pt,
@@ -58,6 +60,7 @@ $font-sizes-mobile: (
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-bold;
+  font-weight: 600;
 }
 h1 {
   font-size: map-get($font-sizes, h1);
