@@ -6,7 +6,10 @@
       <hr />
       <h3>{{name}}</h3>
       <div class="flex-row w-100 space-between">
-         <SanityContent v-if="description" :blocks="description" />
+        <div class="flex-column event-text">
+           <SanityContent v-if="description" :blocks="description"  />
+        </div>
+        
          <button class="btn event">Jetzt Buchen</button>
       </div>
      
@@ -58,7 +61,13 @@ console.log("event", { data: props.data })
     margin: $space-large $space-medium auto 0;
   }
   .event-body {
-    width: calc(100% - 268px - $space-medium);
+    hr {
+      margin-bottom: calc($space-large - 5px);
+      height: 1px;
+      border: none;
+      background-color: $text;
+    }
+    width: $space-event-image;
     margin-left:auto;
     * {
       margin: 0 0 $space-smaller 0;

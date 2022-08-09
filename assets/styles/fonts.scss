@@ -16,24 +16,24 @@
 $font-regular: Barlow ;
 $font-bold: Barlow;
 $font-sizes: (
-  h1: 52pt,
-  h2: 40pt,
-  h3: 32pt,
-  h4: 24pt,
-  h5: 18pt,
-  h6: 16pt,
-  subline: 24pt,
-  p: 18pt
+  h1: 48px,
+  h2: 40px,
+  h3: 32px,
+  h4: 24px,
+  h5: 18px,
+  h6: 16px,
+  subline: 24px,
+  p: 18px
 );
 $font-sizes-mobile: (
-  h1: 32pt,
-  h2: 24pt,
-  h3: 18pt,
-  h4: 18pt,
-  h5: 16pt,
-  h6: 14pt,
-  subline: 18pt,
-  p: 16pt 
+  h1: 32px,
+  h2: 24px,
+  h3: 18px,
+  h4: 18px,
+  h5: 16px,
+  h6: 14px,
+  subline: 18px,
+  p: 16px 
 );
 /// Mixin to manage responsive breakpoints
 /// @author Joe Czarnecki
@@ -69,6 +69,8 @@ h1 {
   @include breakpoint(mobile, down) {
     font-size:  map-get($font-sizes-mobile, h1);
   }
+  
+  
 }
 h2 {
   font-size: map-get($font-sizes, h2);
@@ -109,7 +111,7 @@ body, p, .std {
     font-size:  map-get($font-sizes-mobile, p);
   }
   margin: 0 0 $space-small 0;
-  
+  line-height: 32px;
 }
 .subline {
  >* {
@@ -118,7 +120,7 @@ body, p, .std {
   font-size:  map-get($font-sizes-mobile, subline);
  
 }
-line-height: 46px;
+line-height: 36px;
  }  
 }
 .pre-title {
