@@ -35,6 +35,8 @@ $space-xlarge: 4rem !default;
 /* 96px */
 $space-xxlarge: 6rem !default;
 
+$space-event-image: calc(100% - 268px - $space-medium);
+
 /* 128px */
 $space-xxxlarge: 8rem !default;
 $space-component: $space-xlarge;

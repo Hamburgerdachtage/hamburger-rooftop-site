@@ -2,7 +2,7 @@
   <section v-for="item in items" class="program-section" :key="item._id">
     <div class="program-description">
       <span class="pre-title">{{item.preTitle}}</span>
-      <h1>{{item.name}}</h1>
+      <h2>{{item.name}}</h2>
       <SanityContent :blocks="item.description" />
     </div>
     
@@ -46,5 +46,10 @@ console.log("program-section", {items})
 @import "../../assets/styles/index.scss";
  .program-section {
   margin-top: $space-large;
+  .program-description {
+     margin: 0 0 0 auto;
+  width: $space-event-image;
+  }
+ 
  }
 </style>

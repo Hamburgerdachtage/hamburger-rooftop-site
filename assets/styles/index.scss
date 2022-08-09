@@ -57,4 +57,10 @@ body {
   border: none;
   color: $white;
   background-color: $magenta;
+  font-family:$font-regular;
+  font-size: map-get($font-sizes, h6);
+  @include breakpoint(mobile, down) {
+    font-size:  map-get($font-sizes-mobile, h6);
+  }
+  font-weight: bold;
 }

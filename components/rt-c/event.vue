@@ -4,7 +4,7 @@
     
     <div class="event-body">
       <hr />
-      <h2>{{name}}</h2>
+      <h3>{{name}}</h3>
       <div class="flex-row w-100 space-between">
          <SanityContent v-if="description" :blocks="description" />
          <button class="btn event">Jetzt Buchen</button>

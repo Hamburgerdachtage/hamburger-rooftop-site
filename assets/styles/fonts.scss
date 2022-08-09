@@ -116,7 +116,9 @@ body, p, .std {
   font-size: map-get($font-sizes, subline);
 @include breakpoint(mobile, down) {
   font-size:  map-get($font-sizes-mobile, subline);
+ 
 }
+line-height: 46px;
  }  
 }
 .pre-title {

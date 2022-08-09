@@ -21,6 +21,7 @@ const {headline, image, page, subline} =  data.filter(item => item.page === "mai
 <style scoped lang="scss">
 @import "../../assets/styles/index.scss";
 header.main-header {
+  
   @include breakpoint(mobile, down) {
     flex-direction: column;
   }
@@ -33,7 +34,9 @@ header.main-header {
     }
   }
   >.headline-container {
-    margin-top: $space-xxlarge;
+    margin: $space-xxlarge auto 0 $space-xlarge;
+    width: $component-container;
+  // margin: auto;
      @include breakpoint(mobile, down) {
        margin-top: 0;
      }
