@@ -124,6 +124,7 @@ body, p, .std {
   @include breakpoint(mobile, down) {
     font-size:  map-get($font-sizes-mobile, h5);
   }
+  font-weight:bold;
   color: $magenta;
 }
 
