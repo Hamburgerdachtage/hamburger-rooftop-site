@@ -1,20 +1,15 @@
 <template>
     <NuxtLayout>
       <template #main-header>
-       <rt-c-header
-        title="Rooftop Header"
-       />
+        <rt-c-header />
       </template>
-      <rt-test message="rooftop" />
+      <template #main-slot>
+        <rt-c-program-section />
+      </template>
 
     </NuxtLayout>
 </template>
 
 <script setup lang="ts">
-const query = groq`*[_type == "header"]`
-const sanity = useSanity()
-const { data } = await useAsyncData('header', () => sanity.fetch(query))
-const route = useRoute()
 
-console.log("index sanity query", { route: route.path,data})
 </script>

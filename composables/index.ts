@@ -1,0 +1,1 @@
+export { useSimpleSanity } from "./useSimpleSanity"

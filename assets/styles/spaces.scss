@@ -53,7 +53,12 @@ $space-list: (
   "xxlarge": $space-xxlarge,
   "xxxlarge": $space-xxxlarge
 );
-
+.w-100 {
+  width: 100%;
+}
+.space-between {
+  justify-content: space-between;
+}
 :export {
   spaceList: {
     none: $space-none;

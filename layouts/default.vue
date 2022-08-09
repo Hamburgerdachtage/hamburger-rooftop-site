@@ -7,7 +7,7 @@
       
     <div class="default-layout main-container">
           <slot name="main-header"></slot>
-    <main>
+    <main class="flex-column">
       <slot name="main-slot"/>
     </main>
     <slot name="footer-slot"></slot>
@@ -33,6 +33,10 @@ const toggleNav = ()=>{
 .default-layout {
  
   // height: 100vh;
+  main {
+    margin:0 auto;
+    max-width: $inner-container;
+  }
 }
   
 </style>
