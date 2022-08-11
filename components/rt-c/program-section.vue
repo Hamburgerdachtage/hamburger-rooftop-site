@@ -45,7 +45,7 @@ console.log("program-section", {items})
 <style scoped lang="scss">
 @import "../../assets/styles/index.scss";
  .program-section {
-  margin-top: $space-large;
+  margin-top: $space-xxlarge;
   .program-description {
      margin: 0 0 0 auto;
   width: $space-event-image;

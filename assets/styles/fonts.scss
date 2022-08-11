@@ -1,19 +1,19 @@
 @import "./colors.scss";
 @import "./spaces.scss";
 @import "./breakpoints.scss";
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap");
 // @font-face {
 //   font-family: Barlow-Regular;
 //   src: url(~assets/fonts/Barlow-Regular.ttf), format('truetype');
- 
+
 // }
 // @font-face {
 //   font-family: Barlow-SemiBold;
 //   src: url(~assets/fonts/Barlow-SemiBold.ttf), format('truetype');
- 
+
 // }
 
-$font-regular: Barlow ;
+$font-regular: Barlow;
 $font-bold: Barlow;
 $font-sizes: (
   h1: 48px,
@@ -23,7 +23,7 @@ $font-sizes: (
   h5: 18px,
   h6: 16px,
   subline: 24px,
-  p: 18px
+  p: 18px,
 );
 $font-sizes-mobile: (
   h1: 32px,
@@ -33,7 +33,7 @@ $font-sizes-mobile: (
   h5: 16px,
   h6: 14px,
   subline: 18px,
-  p: 16px 
+  p: 16px,
 );
 /// Mixin to manage responsive breakpoints
 /// @author Joe Czarnecki
@@ -44,11 +44,10 @@ $font-sizes-mobile: (
   @if map-has-key($fontSizes, $size) {
     // return the correct font size
     font-size: map-get($fontSizes, $size);
-    @content; 
-
+    @content;
   }
-   // If the key doesn't exist in the map
-   @else {
+  // If the key doesn't exist in the map
+  @else {
     @warn "Unfortunately, no value could be retrieved from `#{$fontSize}`. "
         + "Available breakpoints are: #{map-keys($fontSizes)}.";
   }
@@ -59,7 +58,12 @@ $font-sizes-mobile: (
   color: $text;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $font-bold;
   font-weight: 600;
   margin: 0 0 $space-medium 0;
@@ -67,83 +71,87 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: map-get($font-sizes, h1);
   @include breakpoint(mobile, down) {
-    font-size:  map-get($font-sizes-mobile, h1);
+    font-size: map-get($font-sizes-mobile, h1);
   }
-  
-  
 }
 h2 {
   font-size: map-get($font-sizes, h2);
+  line-height: 56px;
   @include breakpoint(mobile, down) {
-    font-size:  map-get($font-sizes-mobile, h2);
+    font-size: map-get($font-sizes-mobile, h2);
   }
 }
 h3 {
   font-size: map-get($font-sizes, h3);
   @include breakpoint(mobile, down) {
-    font-size:  map-get($font-sizes-mobile, h3);
+    font-size: map-get($font-sizes-mobile, h3);
   }
 }
 h4 {
   font-size: map-get($font-sizes, h4);
   @include breakpoint(mobile, down) {
-    font-size:  map-get($font-sizes-mobile, h4);
+    font-size: map-get($font-sizes-mobile, h4);
   }
 }
 h5 {
   font-size: map-get($font-sizes, h5);
   @include breakpoint(mobile, down) {
-    font-size:  map-get($font-sizes-mobile, h5);
+    font-size: map-get($font-sizes-mobile, h5);
   }
 }
 h6 {
   font-size: map-get($font-sizes, h6);
   @include breakpoint(mobile, down) {
-    font-size:  map-get($font-sizes-mobile, h6);
+    font-size: map-get($font-sizes-mobile, h6);
   }
 }
 
-
-body, p, .std {
-  font-family:$font-regular;
+body,
+p,
+.std {
+  font-family: $font-regular;
   font-size: map-get($font-sizes, p);
   @include breakpoint(mobile, down) {
-    font-size:  map-get($font-sizes-mobile, p);
+    font-size: map-get($font-sizes-mobile, p);
   }
-  margin: 0 0 $space-small 0;
+
   line-height: 32px;
 }
-.subline {
- >* {
-  font-size: map-get($font-sizes, subline);
-@include breakpoint(mobile, down) {
-  font-size:  map-get($font-sizes-mobile, subline);
- 
+p,
+.std {
+  margin: 0 0 $space-small 0;
 }
-line-height: 36px;
- }  
+.subline {
+  > * {
+    font-size: map-get($font-sizes, subline);
+    @include breakpoint(mobile, down) {
+      font-size: map-get($font-sizes-mobile, subline);
+    }
+    line-height: 36px;
+  }
 }
 .pre-title {
   font-size: map-get($font-sizes, h5);
+  padding-bottom: $space-small;
   @include breakpoint(mobile, down) {
-    font-size:  map-get($font-sizes-mobile, h5);
+    font-size: map-get($font-sizes-mobile, h5);
   }
-  font-weight:bold;
+  font-weight: bold;
   color: $magenta;
 }
 
 .green-bold {
   font-size: map-get($font-sizes, h5);
   @include breakpoint(mobile, down) {
-    font-size:  map-get($font-sizes-mobile, h5);
+    font-size: map-get($font-sizes-mobile, h5);
   }
-  font-weight:bold;
+  font-weight: bold;
   color: $mint-dark;
 }
 :export {
   fontRegular: $font-regular;
   fontSemiBold: $font-bold;
-  fontSizes: {
+  fontsizes: {
     h1: map-get($font-sizes, h1);
     h2: map-get($font-sizes, h2);
     h3: map-get($font-sizes, h3);
@@ -152,6 +160,6 @@ line-height: 36px;
     h6: map-get($font-sizes, h6);
     p: map-get($font-sizes, p);
     subline: map-get($font-sizes, subline);
-  };
+  }
   // fontSizesMobile: $font-sizes-mobile;
 }

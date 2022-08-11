@@ -8,43 +8,50 @@
 // global styles
 body {
   margin: 0px;
+  display: flex;
+  flex-direction: column;
 }
 .main-container {
   max-width: $main-container;
   padding: 0 $space-default;
-  height: 100vh;
+  // height: 100vh;
   margin: -54px auto 0 auto;
 }
 .magenta-text {
-  color: $magenta
+  color: $magenta;
 }
 
 .flex {
-  display:flex;
+  display: flex;
   &-row {
-    display:flex;
+    display: flex;
     flex-direction: row;
     &-reverse {
-      display:flex;
+      display: flex;
       flex-direction: row-reverse;
+    }
+    &-center-align {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
     }
   }
   &-column {
-    display:flex;
+    display: flex;
     flex-direction: column;
     &-reverse {
-      display:flex;
+      display: flex;
       flex-direction: column-reverse;
     }
     &-center {
       justify-content: center;
       &-all {
-        display:flex;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-content: center;
         > * {
-          margin:auto;
+          margin: auto;
         }
       }
     }
@@ -57,10 +64,13 @@ body {
   border: none;
   color: $white;
   background-color: $magenta;
-  font-family:$font-regular;
+  font-family: $font-regular;
   font-size: map-get($font-sizes, h6);
   @include breakpoint(mobile, down) {
-    font-size:  map-get($font-sizes-mobile, h6);
+    font-size: map-get($font-sizes-mobile, h6);
   }
   font-weight: bold;
+}
+
+.shadow-1 {
 }

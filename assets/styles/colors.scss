@@ -4,7 +4,7 @@ $darkness: #041b38;
 $text: #0e141b;
 $mint-dark: #01d5a2;
 $mint-light: #88ffd1;
-
+$black: #0e141b;
 // greys
 $white: #fff;
 $grey01: #e9ecf1;
@@ -28,8 +28,8 @@ $colors-list: (
   pink: $pink,
   darkness: $darkness,
   text: $text,
-  mintDark:$mint-dark,
-  mintLight:$mint-light,
+  mintDark: $mint-dark,
+  mintLight: $mint-light,
   white: $white,
   grey01: $grey01,
   grey02: $grey02,
@@ -37,20 +37,20 @@ $colors-list: (
   bismark: $bismark,
   violent: $violent,
   skylark: $skylark,
-  dust: $dust
+  dust: $dust,
 );
 
 :export {
   magenta: $magenta;
   pink: $pink;
-  darkness:$darkness;
+  darkness: $darkness;
   text: $text;
-  mintDark:$mint-dark;
-  mintLight:$mint-light;
+  mintDark: $mint-dark;
+  mintLight: $mint-light;
   white: $white;
   grey: {
-    one:$grey01;
-    two:$grey02;
-    three:$grey03;
+    one: $grey01;
+    two: $grey02;
+    three: $grey03;
   }
 }
