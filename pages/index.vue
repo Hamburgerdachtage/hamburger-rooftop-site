@@ -4,7 +4,7 @@
       <rt-c-header />
     </template>
     <template #main-slot>
-      <rt-o-program-filter :hash-links="hashLinks" @hash="handleHash" />
+      <rt-o-program-filter :hash-links="hashLinks" :active-hash="currentHash" @hash="handleHash" />
       <rt-c-program-section :items="filteredProgram" />
     </template>
 
@@ -53,7 +53,6 @@ const filteredProgram = computed(() => {
     return programData.value
   }
   return programData.value.filter(item => {
-    console.log(item.hashLink, currentHash.value, item.hashLink === currentHash.value)
     return item.hashLink === currentHash.value
   })
 })
