@@ -68,8 +68,11 @@ function handleClick(hash) {
     }
 
     .arrow {
+      color: $white;
+      stroke: $white;
+
       >* {
-        stroke: white;
+        stroke: $white;
       }
     }
   }
@@ -99,8 +102,11 @@ function handleClick(hash) {
 
   .arrow {
     margin: auto auto $space-small $space-small;
+    stroke: $bismark;
 
-
+    >* {
+      stroke: $bismark;
+    }
 
   }
 }

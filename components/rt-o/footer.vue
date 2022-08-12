@@ -4,10 +4,10 @@
       <div class="to-top-wrapper">
         <rt-o-to-top />
       </div>
-      <div class="footer-content flex-row-center-align">
+      <div class="footer-content flex-row">
         <logo class="obenstadt-logo" />
-        <span class="copy">© 2022 <a href="https:www.obenstadt.de" class="footer-link">obenstadt.de</a></span>
-        <div class="footer-links">
+        <div class="copy">© 2022 <a href="https:www.obenstadt.de" class="footer-link">obenstadt.de</a></div>
+        <div class="footer-links flex-row">
           <NuxtLink class="footer-link" to="/impressum">Impressum</NuxtLink>
         </div>
 

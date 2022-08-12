@@ -65,20 +65,7 @@ body {
     }
   }
 }
-.btn {
-  width: 200px;
-  height: 56px;
-  border-radius: 50px;
-  border: none;
-  color: $white;
-  background-color: $magenta;
-  font-family: $font-regular;
-  font-size: map-get($font-sizes, h6);
-  @include breakpoint(mobile, down) {
-    font-size: map-get($font-sizes-mobile, h6);
-  }
-  font-weight: bold;
-}
+
 $shadow-x: 0px;
 $shadow-y: 2px;
 $shadow-blur: 4px;
@@ -99,4 +86,33 @@ $shadow-color: rgba(0, 0, 0, 0.75);
     $shadow-color;
   -moz-box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-spread $shadow-color;
   box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-spread $shadow-color;
+}
+a.btn {
+  width: 200px;
+  height: 56px;
+  border-radius: 50px;
+  border: none;
+  color: $white;
+  background-color: $magenta;
+  font-family: $font-regular;
+
+  text-align: center;
+  @include font-size(h5);
+  font-weight: bold;
+
+  cursor: pointer;
+  @include transition();
+  &:hover {
+    @include shadow-hover();
+  }
+
+  // padding: $space-small 0 0 0;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  .link-text {
+    color: $white;
+    margin: auto;
+  }
 }

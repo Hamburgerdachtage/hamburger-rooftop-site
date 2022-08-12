@@ -1,50 +1,53 @@
 <template>
   <div v-if="name" class="event flex-row">
     <SanityImage class="event-image" v-if="image" :asset-id="image.asset._ref" />
-    
+
     <div class="event-body">
       <hr />
-      <h3>{{name}}</h3>
+      <h3>{{ name }}</h3>
       <div class="flex-row w-100 space-between">
         <div class="flex-column event-text">
-           <SanityContent v-if="description" :blocks="description"  />
+          <SanityContent v-if="description" :blocks="description" />
         </div>
-        
-         <button class="btn event">Jetzt Buchen</button>
+
+        <a v-if="reservationLink" class="btn event" :href="reservationLink.link"><span class="link-text">{{
+            reservationLink.text
+        }}</span></a>
       </div>
-     
-      <div v-if="location" class="location"><b>Standort:</b> {{location}}</div>
+
+      <div v-if="location" class="location"><b>Standort:</b> {{ location }}</div>
       <div v-if="times" class="times flex-row">
         <div class="time-container" v-for="time in times" :key="time._key">
-          <div class="date green-bold">{{new Date(time.eventTime).toDateString()}}</div>
-          <div class="date green-bold">{{new Date(time.eventTime).toLocaleTimeString()}}</div>
+          <div class="date green-bold">{{ new Date(time.eventTime).toDateString() }}</div>
+          <div class="date green-bold">{{ new Date(time.eventTime).toLocaleTimeString() }}</div>
         </div>
       </div>
       <div v-if="length" class="length"><b>Dauer:</b> {{ length }}</div>
       <div v-if="themes" class="themes"><b>Themes: </b>
-        <span class="theme" v-for="theme in themes" :key="theme._key">{{theme.theme}}</span>
+        <span class="theme" v-for="theme in themes" :key="theme._key">{{ theme.theme }}</span>
       </div>
-     
-      <div v-if="tips" class="tips"><b>Wissenswertes:</b> {{tips}}</div>
-      <div v-if="costs" class="costs"><b>Kosten:</b> {{costs}}</div>
-  
+
+      <div v-if="tips" class="tips"><b>Wissenswertes:</b> {{ tips }}</div>
+      <div v-if="costs" class="costs"><b>Kosten:</b> {{ costs }}</div>
+
     </div>
-   
+
   </div>
 </template>
 
 <script setup lang="ts">
 const props = defineProps({
-  name: {type: String, default: null},
-  description: {Array, default: ()=>([])},
-  image: {type: Object},
-  data: {type: Object, default: ()=>({})},
-  times: {type: Array, default: ()=>([])},
-  length: {type: String, default: null},
-  themes: {type: Array, default: ()=>([])},
-  location: {type: String, default: null},
-  tips: {type: String, default: null},
-  costs: {type: String, default: null}
+  name: { type: String, default: null },
+  description: { Array, default: () => ([]) },
+  image: { type: Object },
+  data: { type: Object, default: () => ({}) },
+  times: { type: Array, default: () => ([]) },
+  length: { type: String, default: null },
+  themes: { type: Array, default: () => ([]) },
+  location: { type: String, default: null },
+  tips: { type: String, default: null },
+  costs: { type: String, default: null },
+  reservationLink: { type: Object, default: null }
 })
 // const eventItem = await useSimpleSanity('event')
 console.log("event", { data: props.data })
@@ -52,7 +55,8 @@ console.log("event", { data: props.data })
 
 <style scoped lang="scss">
 @import "../../assets/styles/index.scss";
- .event {
+
+.event {
   margin-top: $space-xlarge;
 
   .event-image {
@@ -60,6 +64,7 @@ console.log("event", { data: props.data })
     height: 268px;
     margin: $space-large $space-medium auto 0;
   }
+
   .event-body {
     hr {
       margin-bottom: calc($space-large - 5px);
@@ -67,21 +72,26 @@ console.log("event", { data: props.data })
       border: none;
       background-color: $text;
     }
+
     width: $space-event-image;
     margin-left:auto;
+
     * {
       margin: 0 0 $space-smaller 0;
-      
+
     }
+
     .times {
       margin-bottom: 0px;
+
       .date {
         margin: 0 $space-small 0 0;
       }
     }
+
     .theme {
       margin-right: $space-small;
     }
   }
- }
+}
 </style>

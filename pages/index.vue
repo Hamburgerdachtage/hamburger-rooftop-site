@@ -18,6 +18,7 @@ const getProgramData = async () => {
   ...,
   events[]-> {
     ...,
+    reservationLink->,
     themes[]->
   }
 }`
@@ -25,6 +26,7 @@ const getProgramData = async () => {
     const sanity = useSanity()
     const { data } = await useAsyncData(`programteil`, () => sanity.fetch(query)) as Record<string, any>
     const items = data._rawValue
+    console.log("index", { items })
     return items
   } catch (error) {
     console.error("getProgramData", error)
