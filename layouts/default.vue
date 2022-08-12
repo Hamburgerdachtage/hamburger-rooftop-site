@@ -5,7 +5,7 @@
       <rt-o-slide-out :show="showNav" mint />
     </nav>
 
-    <div class="default-layout main-container">
+    <div class="default-layout main-container ">
       <slot name="main-header"></slot>
       <main class="flex-column">
         <slot name="main-slot" />
@@ -31,12 +31,18 @@ const toggleNav = () => {
 <style lang="scss" scoped>
 @import "../assets/styles/index.scss";
 
+.outside {
+  min-height: 100vh;
+}
+
 .default-layout {
 
-  // height: 100vh;
+  height: 100%;
+
   main {
     margin: 0 auto;
     max-width: $inner-container;
+    min-height: calc(100vh - (176px * 3));
   }
 }
 </style>

@@ -11,6 +11,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  min-height: 100vh;
   margin: 0px;
   display: flex;
   flex-direction: column;
@@ -27,17 +28,20 @@ body {
 
 .flex {
   display: flex;
+  &-center-align {
+    display: flex;
+    align-content: center;
+  }
+  &-center-justify {
+    display: flex;
+    justify-content: center;
+  }
   &-row {
     display: flex;
     flex-direction: row;
     &-reverse {
       display: flex;
       flex-direction: row-reverse;
-    }
-    &-center-align {
-      display: flex;
-      flex-direction: row;
-      align-content: center;
     }
   }
   &-column {

@@ -1,5 +1,5 @@
 <template>
-  <section v-for="item in items" class="program-section" :key="item._id">
+  <section v-for="item in items" class="program-section" :key="item._id" :id="item.hashLink.replace('#', '')">
     <div class="program-description">
       <span class="pre-title">{{ item.preTitle }}</span>
       <h2>{{ item.name }}</h2>
@@ -19,27 +19,13 @@
 </template>
 
 <script setup lang="ts">
-const getProgramData = async () => {
-  try {
-    const query = groq`*[_type=='programteil'] {
-  ...,
-  events[]-> {
-    ...,
-    themes[]->
+defineProps({
+  items: {
+    type: Array,
+    default: () => ([])
   }
-}`
+})
 
-    const sanity = useSanity()
-    const { data } = await useAsyncData(`programteil`, () => sanity.fetch(query)) as Record<string, any>
-    const items = data._rawValue
-    return items
-  } catch (error) {
-    console.error("getProgramData", error)
-  }
-}
-const items = await getProgramData()
-// return items
-console.log("program-section", { items })
 </script>
 
 <style scoped lang="scss">
@@ -49,6 +35,7 @@ console.log("program-section", { items })
   margin-top: $space-xxlarge;
 
   margin-bottom: $space-large;
+  flex-grow: 1;
 
   .program-description {
     margin: 0 0 0 auto;
