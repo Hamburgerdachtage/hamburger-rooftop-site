@@ -33,6 +33,11 @@ const toggleNav = () => {
 
 .outside {
   min-height: 100vh;
+
+  @include breakpoint(mobile, down) {
+    max-width: 100vw;
+    overflow: hidden;
+  }
 }
 
 .default-layout {
@@ -43,6 +48,11 @@ const toggleNav = () => {
     margin: 0 auto;
     max-width: $inner-container;
     min-height: calc(100vh - (176px * 3));
+
+    @include breakpoint(mobile, down) {
+      max-width: 100%;
+      padding: $space-small;
+    }
   }
 }
 </style>

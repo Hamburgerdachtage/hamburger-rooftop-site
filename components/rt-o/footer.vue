@@ -6,8 +6,9 @@
       </div>
       <div class="footer-content flex-row">
         <logo class="obenstadt-logo" />
-        <div class="copy">© 2022 <a href="https:www.obenstadt.de" class="footer-link">obenstadt.de</a></div>
+
         <div class="footer-links flex-row">
+          <div class="copy">© 2022 <a href="https:www.obenstadt.de" class="footer-link">obenstadt.de</a></div>
           <NuxtLink class="footer-link" to="/impressum">Impressum</NuxtLink>
         </div>
 
@@ -34,6 +35,7 @@ footer {
   justify-content: center;
   margin: auto 0 0 0;
 
+
   .footer-container {
     width: $inner-container;
     margin: auto;
@@ -55,6 +57,13 @@ footer {
     .footer-link {
       color: $white;
       padding: 0 $space-tiny;
+    }
+
+    .footer-links {
+      @include breakpoint(mobile, down) {
+        flex-direction: column;
+      }
+
     }
   }
 

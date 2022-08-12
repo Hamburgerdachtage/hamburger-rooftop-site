@@ -1,18 +1,29 @@
 <template>
   <div v-if="name" class="event flex-row">
+    <ClientOnly>
+
+      <hr v-if="isMobile" />
+    </ClientOnly>
+
     <SanityImage class="event-image" v-if="image" :asset-id="image.asset._ref" />
 
     <div class="event-body">
-      <hr />
+      <ClientOnly>
+        <hr v-if="!isMobile" />
+      </ClientOnly>
+
       <h3>{{ name }}</h3>
       <div class="flex-row w-100 space-between">
         <div class="flex-column event-text">
           <SanityContent v-if="description" :blocks="description" />
         </div>
+        <ClientOnly>
+          <a v-if="reservationLink && !isMobile" class="btn event" :href="reservationLink.link"><span
+              class="link-text">{{
+                  reservationLink.text
+              }}</span></a>
+        </ClientOnly>
 
-        <a v-if="reservationLink" class="btn event" :href="reservationLink.link"><span class="link-text">{{
-            reservationLink.text
-        }}</span></a>
       </div>
 
       <div v-if="location" class="location"><b>Standort:</b> {{ location }}</div>
@@ -29,6 +40,11 @@
 
       <div v-if="tips" class="tips"><b>Wissenswertes:</b> {{ tips }}</div>
       <div v-if="costs" class="costs"><b>Kosten:</b> {{ costs }}</div>
+      <ClientOnly>
+        <a v-if="reservationLink && isMobile" class="btn event" :href="reservationLink.link"><span class="link-text">{{
+            reservationLink.text
+        }}</span></a>
+      </ClientOnly>
 
     </div>
 
@@ -36,6 +52,7 @@
 </template>
 
 <script setup lang="ts">
+
 const props = defineProps({
   name: { type: String, default: null },
   description: { Array, default: () => ([]) },
@@ -49,8 +66,13 @@ const props = defineProps({
   costs: { type: String, default: null },
   reservationLink: { type: Object, default: null }
 })
-// const eventItem = await useSimpleSanity('event')
-console.log("event", { data: props.data })
+
+const isMobile = computed(() => {
+  if (window) {
+    return window.screen.width < 768
+  }
+  return false
+})
 </script>
 
 <style scoped lang="scss">
@@ -59,26 +81,73 @@ console.log("event", { data: props.data })
 .event {
   margin-top: $space-xlarge;
 
+  @include breakpoint(mobile, down) {
+    &.flex-row {
+      flex-direction: column;
+    }
+
+  }
+
   .event-image {
     width: 268px;
     height: 268px;
     margin: $space-large $space-medium auto 0;
+
+    @include breakpoint(mobile, down) {
+      width: 121px;
+      height: 121px;
+      margin: auto $space-tiny auto $space-tiny;
+    }
+  }
+
+  hr {
+    margin-bottom: calc($space-large - 5px);
+    height: 1px;
+    border: none;
+    background-color: $text;
+
+    @include breakpoint(mobile, down) {
+      &.mobile-hr {
+        display: block;
+        margin: $space-tiny auto;
+        height: qpx;
+        border: none;
+        background-color: $black;
+      }
+    }
   }
 
   .event-body {
-    hr {
-      margin-bottom: calc($space-large - 5px);
-      height: 1px;
-      border: none;
-      background-color: $text;
+
+
+    // .desktop-hr {
+    //   display: block;
+    // }
+
+    // .mobile-hr {
+    //   display: none;
+    // }
+
+    @include breakpoint(mobile, down) {
+      // .mobile-hr {
+      //   display: block;
+      // }
+
+      .desktop-hr {
+        display: none;
+      }
     }
 
     width: $space-event-image;
-    margin-left:auto;
+    margin-left: auto;
 
     * {
       margin: 0 0 $space-smaller 0;
+    }
 
+    @include breakpoint(mobile, down) {
+      width: 100%;
+      // margin: auto $space-tiny auto $space-tiny;
     }
 
     .times {

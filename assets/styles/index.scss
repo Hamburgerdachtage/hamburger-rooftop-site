@@ -21,6 +21,10 @@ body {
   padding: 0 $space-default;
   // height: 100vh;
   margin: -54px auto 0 auto;
+  @include breakpoint(mobile, down) {
+    max-width: 100vw;
+    padding: 0;
+  }
 }
 .magenta-text {
   color: $magenta;

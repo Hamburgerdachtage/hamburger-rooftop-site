@@ -30,9 +30,13 @@ const emit = defineEmits(['hash'])
 const numbers = ref([])
 
 numbers.value = props.hashLinks.map((item, i) => i + 1)
-
+const route = useRoute()
 function handleClick(hash) {
-  emit('hash', hash)
+  emit('hash', hash),
+    setTimeout(() => {
+      location.href = hash
+    }, 500)
+
 }
 
 
@@ -41,6 +45,15 @@ function handleClick(hash) {
 
 <style scoped lang="scss">
 @import "../../assets/styles/index.scss";
+
+.program-filter {
+  margin: $space-large 0;
+
+  @include breakpoint(mobile, down) {
+    flex-direction: column;
+
+  }
+}
 
 .filter-button {
   border: none;
@@ -77,6 +90,12 @@ function handleClick(hash) {
     }
   }
 
+  @include breakpoint(mobile, down) {
+    width: 100%;
+    height: 75px;
+    margin: $space-tiny auto;
+    flex-direction: row;
+  }
 
   .number {
     @include font-size(p);
@@ -85,6 +104,10 @@ function handleClick(hash) {
     justify-self: flex-start;
     align-self: flex-start;
     color: $bismark;
+
+    @include breakpoint(mobile, down) {
+      margin: auto $space-tiny auto $space-tiny;
+    }
   }
 
   .hash {
@@ -97,7 +120,9 @@ function handleClick(hash) {
       text-transform: capitalize;
     }
 
-
+    @include breakpoint(mobile, down) {
+      margin: auto auto auto $space-tiny;
+    }
   }
 
   .arrow {
@@ -108,6 +133,9 @@ function handleClick(hash) {
       stroke: $bismark;
     }
 
+    @include breakpoint(mobile, down) {
+      margin: auto $space-tiny auto auto;
+    }
   }
 }
 </style>
