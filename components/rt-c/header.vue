@@ -1,20 +1,52 @@
 <template>
   <header class="main-header flex-row">
-    <SanityImage :asset-id="image.asset._ref" alt="Logo" />
+    <SanityImage :asset-id="headerData.image.asset._ref" alt="Logo" />
+
     <div class="headline-container">
-      <h1 class="header-title">{{ headline }}</h1>
+      <h1 v-if="currentHeadline" class="header-title">{{ currentHeadline }}</h1>
       <div class="subline">
-        <SanityContent :blocks="subline"></SanityContent>
+        <SanityContent v-if="currentSubline" :blocks="currentSubline"></SanityContent>
       </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
+import HDTLogo from "../../assets/images/HDT_Logo.svg"
+
+const { headline, subline, image, useProps } = defineProps({
+  headline: {
+    type: String,
+    default: null
+  },
+  subline: {
+    type: Array,
+    default: () => ([])
+  },
+  image: {
+    type: Object,
+    default: () => ({})
+  },
+  useProps: Boolean
+})
 
 const data = await useSimpleSanity('header')
 
-const { headline, image, page, subline } = data.filter(item => item.page === "main")[0]
+const headerData = data.filter(item => item.page === "main")[0]
+
+
+const currentHeadline = computed(() => {
+  if (headline) {
+    return headline
+  }
+  return headerData.headline
+})
+const currentSubline = computed(() => {
+  if (subline) {
+    return subline
+  }
+  return headerData.subline
+})
 
 </script>
 
@@ -29,7 +61,8 @@ header.main-header {
     padding-right: $space-small;
   }
 
-  >img {
+  >img,
+  .logo {
     height: 370px;
     width: 370px;
 
@@ -38,6 +71,8 @@ header.main-header {
       width: 141px;
     }
   }
+
+
 
   >.headline-container {
     margin: $space-xxlarge auto 0 $space-xlarge;
