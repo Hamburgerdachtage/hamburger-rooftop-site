@@ -26,7 +26,7 @@
 
       </div>
 
-      <div v-if="location" class="location"><b>Standort:</b> {{ location }}</div>
+      <div v-if="location" class="location"><b>Ort:</b> {{ location }}</div>
       <div v-if="times" class="times flex-row">
         <div class="time-container" v-for="time in times" :key="time._key">
           <div class="date green-bold">{{ new Date(time.eventTime).toDateString() }}</div>
