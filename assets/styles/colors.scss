@@ -39,7 +39,16 @@ $colors-list: (
   skylark: $skylark,
   dust: $dust,
 );
-
+@for $color from 1 through 14 {
+  .text-#{$color} {
+    color: $color;
+  }
+}
+@for $color from 1 through 14 {
+  .bg-#{$color} {
+    background-color: $color;
+  }
+}
 :export {
   magenta: $magenta;
   pink: $pink;

@@ -5,10 +5,13 @@
 @import "./fonts.scss";
 @import "./colors.scss";
 @import "./animation.scss";
+@import "./shadow.scss";
+@import "./buttons.scss";
 
 // global styles
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 body {
   min-height: 100vh;
@@ -67,56 +70,5 @@ body {
         }
       }
     }
-  }
-}
-
-$shadow-x: 0px;
-$shadow-y: 2px;
-$shadow-blur: 4px;
-$shadow-spread: 0px;
-$shadow-color: rgba(0, 0, 0, 0.75);
-@mixin shadow-hover() {
-  -webkit-box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-spread
-    $shadow-color;
-  -moz-box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-spread $shadow-color;
-  box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-spread $shadow-color;
-}
-@mixin shadow-hover-svg() {
-  -webkit-filter: drop-shadow($shadow-x $shadow-y $shadow-blur $shadow-color);
-  filter: drop-shadow($shadow-x $shadow-y $shadow-blur $shadow-color);
-}
-.shadow-hover {
-  -webkit-box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-spread
-    $shadow-color;
-  -moz-box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-spread $shadow-color;
-  box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-spread $shadow-color;
-}
-a.btn {
-  width: 200px;
-  height: 56px;
-  border-radius: 50px;
-  border: none;
-  color: $white;
-  background-color: $magenta;
-  font-family: $font-regular;
-
-  text-align: center;
-  @include font-size(h5);
-  font-weight: bold;
-
-  cursor: pointer;
-  @include transition();
-  &:hover {
-    @include shadow-hover();
-  }
-
-  // padding: $space-small 0 0 0;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  .link-text {
-    color: $white;
-    margin: auto;
   }
 }

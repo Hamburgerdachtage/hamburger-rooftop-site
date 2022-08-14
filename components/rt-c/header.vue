@@ -1,7 +1,9 @@
 <template>
   <header class="main-header flex-row">
-    <SanityImage :asset-id="headerData.image.asset._ref" alt="Logo" />
-
+    <NuxtLink to="/">
+      <SanityImage v-if="headerImage" :asset-id="headerImage" alt="Logo" />
+      <HDTLogo v-else />
+    </NuxtLink>
     <div class="headline-container">
       <h1 v-if="currentHeadline" class="header-title">{{ currentHeadline }}</h1>
       <div class="subline">
