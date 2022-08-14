@@ -22,9 +22,6 @@ const props = defineProps({
 
 })
 
-watch(props.activeHash, (newVal) => {
-  console.log("watch activeHash", { newVal })
-})
 const emit = defineEmits(['hash'])
 
 const numbers = ref([])

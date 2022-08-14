@@ -24,7 +24,7 @@ const getArticleData = async (title: string) => {
     const sanity = useSanity()
     const { data } = await useAsyncData(`programteil`, () => sanity.fetch(query)) as Record<string, any>
     const items = data._rawValue
-    console.log("index", { items })
+
     return items
   } catch (error) {
     console.error("getProgramData", error)
@@ -32,10 +32,9 @@ const getArticleData = async (title: string) => {
 }
 const articleData = ref({})
 const title = route.path.replace('/', '')
-console.log({ title })
+
 articleData.value = await getArticleData(title)
 
-console.log({ articleData: articleData.value })
 </script>
 <style scoped lang="scss">
 @import "../assets/styles/index.scss";

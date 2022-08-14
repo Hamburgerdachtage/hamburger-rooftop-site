@@ -1,20 +1,22 @@
 <template>
   <header class="main-header flex-row">
-    <SanityImage :asset-id="headerData.image.asset._ref" alt="Logo" />
-
+    <SanityImage v-if="headerImage" :asset-id="headerImage" alt="Logo" />
+    <HDTLogo v-else />
     <div class="headline-container">
       <h1 v-if="currentHeadline" class="header-title">{{ currentHeadline }}</h1>
-      <div class="subline">
-        <SanityContent v-if="currentSubline" :blocks="currentSubline"></SanityContent>
+      <div v-if="currentSubline" class="subline">
+        <SanityContent :blocks="currentSubline"></SanityContent>
       </div>
     </div>
+
   </header>
 </template>
 
 <script setup lang="ts">
+import { logger } from "@nuxt/kit";
 import HDTLogo from "../../assets/images/HDT_Logo.svg"
 
-const { headline, subline, image, useProps } = defineProps({
+const props = defineProps({
   headline: {
     type: String,
     default: null
@@ -27,25 +29,36 @@ const { headline, subline, image, useProps } = defineProps({
     type: Object,
     default: () => ({})
   },
-  useProps: Boolean
+
 })
 
 const data = await useSimpleSanity('header')
+console.log({ data })
 
 const headerData = data.filter(item => item.page === "main")[0]
 
 
+const headerImage = computed(() => {
+  return headerData && headerData.image && headerData.image.asset._ref
+})
+
 const currentHeadline = computed(() => {
-  if (headline) {
-    return headline
+  if (props.headline) {
+    return props.headline
   }
-  return headerData.headline
+  if (headerData) {
+    return headerData.headline
+  }
+  return "Hamburger Dach Tage"
 })
 const currentSubline = computed(() => {
-  if (subline) {
-    return subline
+  if (props.subline.length > 0) {
+    return props.subline
   }
-  return headerData.subline
+  if (headerData) {
+    return headerData.subline
+  }
+  return null
 })
 
 </script>

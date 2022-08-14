@@ -10,7 +10,7 @@
 import toTop from "../../assets/images/toTop.svg"
 
 const handleClick = () => {
-  console.log("toTop")
+
   if (window) {
     window.scrollTo(0, 0)
   }
@@ -19,7 +19,7 @@ const isHovered = ref(false)
 function handleHover() {
 
   isHovered.value = !isHovered.value
-  console.log({ isHovered: isHovered.value })
+
 }
 </script>
 

@@ -25,6 +25,24 @@ const showNav = ref(false);
 const toggleNav = () => {
   showNav.value = !showNav.value
 }
+const getNavData = async () => {
+  try {
+    const query = groq`*[_type=='navLinks'] {
+  ...
+  }
+}`
+
+    const sanity = useSanity()
+    const { data } = await useAsyncData(`navLink`, () => sanity.fetch(query)) as Record<string, any>
+    const items = data._rawValue
+
+    return items
+  } catch (error) {
+    console.error("getProgramData", error)
+  }
+}
+const navData = ref([])
+navData.value = await getNavData()
 
 </script>
 
