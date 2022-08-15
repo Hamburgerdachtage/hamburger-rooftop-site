@@ -1,9 +1,9 @@
 <template>
   <div class="outside">
-    <!-- <nav class="flex-row-reverse">
+    <nav class="flex-row-reverse">
       <rt-o-hamburger @open="toggleNav" @close="toggleNav"></rt-o-hamburger>
       <rt-o-slide-out :show="showNav" mint />
-    </nav> -->
+    </nav>
 
     <div class="default-layout main-container ">
       <slot name="main-header"></slot>
