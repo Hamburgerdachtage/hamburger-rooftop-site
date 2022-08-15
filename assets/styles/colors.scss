@@ -19,6 +19,7 @@ $success: #1cd032;
 // in consideration
 
 $bismark: #001e59;
+$bismark-hover: #3c5a95;
 $violent: #4841a1;
 $skylark: #66ccf2;
 $dust: #253a4c;
@@ -35,10 +36,20 @@ $colors-list: (
   grey02: $grey02,
   grey03: $grey03,
   bismark: $bismark,
+  bismark-hover: $bismark-hover,
   violent: $violent,
   skylark: $skylark,
   dust: $dust,
 );
+
+@each $key, $value in $colors-list {
+  .bg-#{"" + $key} {
+    background-color: $value;
+  }
+  .text-#{"" + $key} {
+    color: $value;
+  }
+}
 
 :export {
   magenta: $magenta;

@@ -5,7 +5,7 @@ $global-animation-easing: ease-in-out;
   $for: all,
   $time-in: 250ms,
   $type: ease-in-out,
-  $time-out: 0s
+  $time-out: 0.1s
 ) {
   transition: $for $time-in $type $time-out;
   -moz-transition: $for $time-in $type $time-out;

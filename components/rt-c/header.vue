@@ -33,7 +33,6 @@ const props = defineProps({
 })
 
 const data = await useSimpleSanity('header')
-console.log({ data })
 
 const headerData = data.filter(item => item.page === "main")[0]
 

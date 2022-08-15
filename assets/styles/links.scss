@@ -1,0 +1,18 @@
+@import "../styles/animation.scss";
+@import "../styles/colors.scss";
+@import "../styles/fonts.scss";
+@import "../styles/shadow.scss";
+
+.menu-link {
+  @include transition();
+  color: $bismark;
+  padding: $space-small;
+  width: calc(100% - (2 * $space-small));
+  display: block;
+
+  &:hover {
+    color: $white;
+    @include text-shadow();
+    background-color: $mint-dark;
+  }
+}

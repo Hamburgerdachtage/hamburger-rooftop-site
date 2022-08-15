@@ -1,9 +1,11 @@
 <template>
   <div class="outside">
-    <nav class="flex-row-reverse">
+    <div class="flex-row-reverse">
       <rt-o-hamburger @open="toggleNav" @close="toggleNav"></rt-o-hamburger>
-      <rt-o-slide-out :show="showNav" mint />
-    </nav>
+      <rt-o-slide-out :show="showNav" mint>
+        <rt-c-nav-links />
+      </rt-o-slide-out>
+    </div>
 
     <div class="default-layout main-container ">
       <slot name="main-header"></slot>

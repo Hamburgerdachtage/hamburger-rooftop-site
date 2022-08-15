@@ -102,17 +102,13 @@ const isMobile = computed(() => {
 
   hr {
     margin-bottom: calc($space-large - 5px);
-    height: 1px;
-    border: none;
-    background-color: $text;
+
 
     @include breakpoint(mobile, down) {
       &.mobile-hr {
-        display: block;
+
         margin: $space-tiny auto;
-        height: qpx;
-        border: none;
-        background-color: $black;
+
       }
     }
   }

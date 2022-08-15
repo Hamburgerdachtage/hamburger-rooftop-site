@@ -33,7 +33,10 @@ const getArticleData = async (title: string) => {
 const articleData = ref({})
 const title = route.path.replace('/', '')
 
-articleData.value = await getArticleData(title)
+onBeforeMount(async () => {
+  articleData.value = await getArticleData(title)
+})
+
 
 </script>
 <style scoped lang="scss">

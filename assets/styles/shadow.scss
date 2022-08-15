@@ -3,6 +3,12 @@ $shadow-y: 2px;
 $shadow-blur: 8px;
 $shadow-spread: 0px;
 $shadow-color: rgba(0, 0, 0, 0.6);
+@mixin text-shadow() {
+  text-shadow: $shadow-x $shadow-y $shadow-blur $shadow-color;
+}
+.text-shadow {
+  text-shadow: $shadow-x $shadow-y $shadow-blur $shadow-color;
+}
 @mixin shadow-hover() {
   -webkit-box-shadow: $shadow-x $shadow-y $shadow-blur $shadow-spread
     $shadow-color;
