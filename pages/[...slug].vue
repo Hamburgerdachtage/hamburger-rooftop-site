@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout>
+  <NuxtLayout :key="slug">
     <template #main-header>
       <rt-c-header :headline="headline" :subline="subHeadline" />
     </template>
@@ -25,7 +25,7 @@ const headline = ref("")
 const subHeadline = ref([])
 const text = ref([])
 
-const { data } = await useAsyncData(`page`, () => sanity.fetch(query.value)) as Record<string, any>
+const { data } = await useAsyncData(`${slug.value}`, () => sanity.fetch(query.value)) as Record<string, any>
 
 console.log("index", { slug: slug.value, query: query.value, data, raw: data._rawValue })
 const items = data._rawValue
