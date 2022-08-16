@@ -1,8 +1,8 @@
 <template>
   <div class="nav-item flex-row">
-    <div class="nav-image" v-if="image">
+    <!-- <div class="nav-image" v-if="image">
       <SanityImage v-if="image" :asset-id="image && image.asset._ref" />
-    </div>
+    </div> -->
     <div class="nav-link external" v-if="external">
 
       <a :href="url">{{ text }}</a>

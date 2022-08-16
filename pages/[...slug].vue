@@ -1,11 +1,11 @@
 <template>
   <NuxtLayout>
     <template #main-header>
-      <rt-c-header :headline="articleData.title" :subline="articleData.summary" />
+      <rt-c-header :headline="headline" :subline="subHeadline" />
     </template>
     <template #main-slot>
       <section class="article">
-        <SanityContent :blocks="articleData.content" />
+        <SanityContent :blocks="text" />
       </section>
 
     </template>
@@ -15,27 +15,48 @@
 
 <script setup lang="ts">
 const route = useRoute()
-const getArticleData = async (title: string) => {
-  try {
-    const query = groq`*[slug.current == '${title}'][0] {
+const sanity = useSanity()
+const slug = computed(() => route.path.replace('/', ''))
+const query = computed(() => groq`*[_type == "article" && slug.current == "${slug.value}"][0] {
   ...
-}`
+}`)
 
-    const sanity = useSanity()
-    const { data } = await useAsyncData(`programteil`, () => sanity.fetch(query)) as Record<string, any>
-    const items = data._rawValue
-    console.log("index", { items })
-    return items
-  } catch (error) {
-    console.error("getProgramData", error)
-  }
+const headline = ref("")
+const subHeadline = ref([])
+const text = ref([])
+
+const { data } = await useAsyncData(`page`, () => sanity.fetch(query.value)) as Record<string, any>
+
+console.log("index", { slug: slug.value, query: query.value, data, raw: data._rawValue })
+const items = data._rawValue
+
+
+async function setData() {
+  const items = data._rawValue
+  const { title, subline, content } = items;
+  console.log({ title, subline, content })
+  headline.value = title
+  subHeadline.value = subline
+  text.value = content
 }
-const articleData = ref({})
-const title = route.path.replace('/', '')
-console.log({ title })
-articleData.value = await getArticleData(title)
 
-console.log({ articleData: articleData.value })
+async function getDataAndRefresh() {
+
+  await refreshNuxtData('page')
+  await setData()
+}
+onBeforeMount(() => {
+  getDataAndRefresh()
+})
+
+
+watch(slug, async (newVal, oldVal) => {
+  console.log({ newVal, oldVal, slig: slug.value })
+  getDataAndRefresh()
+})
+
+
+// console.log({ articleData: articleData.value })
 </script>
 <style scoped lang="scss">
 @import "../assets/styles/index.scss";
