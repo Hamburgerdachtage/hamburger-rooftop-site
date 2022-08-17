@@ -156,6 +156,8 @@ const isMobile = computed(() => {
 
     .theme {
       margin-right: $space-small;
+      color: $magenta;
+      font-weight: bold;
     }
   }
 }
