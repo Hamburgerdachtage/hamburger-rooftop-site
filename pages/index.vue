@@ -6,6 +6,7 @@
     <template #main-slot>
       <rt-o-program-filter :hash-links="hashLinks" :active-hash="currentHash" @hash="handleHash" />
       <rt-c-program-section :items="filteredProgram" />
+      <rt-o-sponsors />
     </template>
 
   </NuxtLayout>
