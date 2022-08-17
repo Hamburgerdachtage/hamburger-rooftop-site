@@ -30,7 +30,6 @@ defineProps({
   height: 600px;
   width: 375px;
   transition: 500ms ease-in-out;
-  padding: $space-small;
 
   @include breakpoint(mobile, down) {
     height: 100vh;
@@ -45,6 +44,7 @@ defineProps({
       color: $white;
     }
   }
+
 
   &.show {
     top: 0px;

@@ -1,27 +1,29 @@
 <template>
   <header class="main-header flex-row">
     <NuxtLink to="/">
-      <SanityImage v-if="headerImage" :asset-id="headerImage" alt="Logo" />
-      <HDTLogo v-else />
+      <!-- <SanityImage v-if="image" :asset-id="image" alt="Logo" /> -->
+      <HDTLogo />
     </NuxtLink>
     <div class="headline-container">
-      <h1 v-if="currentHeadline" class="header-title">{{ currentHeadline }}</h1>
-      <div class="subline">
-        <SanityContent v-if="currentSubline" :blocks="currentSubline"></SanityContent>
+      <h1 v-if="headline" class="header-title">{{ headline }}</h1>
+      <div v-if="subline" class="subline">
+        <SanityContent :blocks="subline"></SanityContent>
       </div>
     </div>
+
   </header>
 </template>
 
 <script setup lang="ts">
+import { logger } from "@nuxt/kit";
 import HDTLogo from "../../assets/images/HDT_Logo.svg"
-import { useSimpleSanity } from "../../composables"
+import { useSimpleSanity } from "../../composables/useSimpleSanity"
 // const sanity = useSanity()
 
 const route = useRoute()
 const isMain = computed(() => route.path === '/')
 
-const { headline, subline, image, useProps } = defineProps({
+const { headline, subline, image, } = defineProps({
   headline: {
     type: String,
     default: null
@@ -34,26 +36,9 @@ const { headline, subline, image, useProps } = defineProps({
     type: Object,
     default: () => ({})
   },
-  useProps: Boolean
+
 })
 
-const data = await useSimpleSanity('header')
-
-const headerData = data.filter(item => item.page === "main")[0]
-
-
-const currentHeadline = computed(() => {
-  if (headline) {
-    return headline
-  }
-  return headerData.headline
-})
-const currentSubline = computed(() => {
-  if (isMain) {
-    return subline
-  }
-  return headerData.subline
-})
 
 </script>
 

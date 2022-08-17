@@ -1,1 +1,0 @@
-export { useSimpleSanity } from "./useSimpleSanity"

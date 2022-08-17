@@ -1,30 +1,11 @@
 <template>
   <div class="outside">
-    <nav class="flex-row-reverse">
+    <div class="flex-row-reverse">
       <rt-o-hamburger @open="toggleNav" @close="toggleNav"></rt-o-hamburger>
       <rt-o-slide-out :show="showNav" mint>
-        <div class="nav-links-wrapper flex-column-center">
-          <header class="flex-column-center">
-            <nuxt-link to="/">
-              <h1>Home</h1>
-            </nuxt-link>
-          </header>
-          <ul class="nav-items">
-            <template v-for="link in navData" :key="link.text">
-              <li class="nav-item">
-                <rt-o-nav-item :text="link.text" :url="link.path" />
-              </li>
-            </template>
-
-          </ul>
-          <footer>
-            <a href="https:www.obenstadt.de" target="_blank">
-              <h3>Obenstadt.de</h3>
-            </a>
-          </footer>
-        </div>
+        <rt-c-nav-links />
       </rt-o-slide-out>
-    </nav>
+    </div>
 
     <div class="default-layout main-container ">
       <slot name="main-header"></slot>
@@ -46,29 +27,24 @@ const showNav = ref(false);
 const toggleNav = () => {
   showNav.value = !showNav.value
 }
-
 const getNavData = async () => {
   try {
-    const query = groq`*[_type == "article"]{
-      'text':title,
-     'path': slug.current
+    const query = groq`*[_type=='navLinks'] {
+  ...
+  }
 }`
 
     const sanity = useSanity()
-    const { data } = await useAsyncData(`navLinks`, () => sanity.fetch(query)) as Record<string, any>
+    const { data } = await useAsyncData(`navLink`, () => sanity.fetch(query)) as Record<string, any>
     const items = data._rawValue
-    console.log("nav", { items })
+
     return items
   } catch (error) {
     console.error("getProgramData", error)
   }
 }
-
-
-
 const navData = ref([])
 navData.value = await getNavData()
-
 
 </script>
 

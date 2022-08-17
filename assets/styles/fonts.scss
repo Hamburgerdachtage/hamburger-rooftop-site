@@ -154,6 +154,11 @@ p,
   font-weight: bold;
   color: $mint-dark;
 }
+
+.no-underline {
+  text-decoration: none;
+}
+
 :export {
   fontRegular: $font-regular;
   fontSemiBold: $font-bold;

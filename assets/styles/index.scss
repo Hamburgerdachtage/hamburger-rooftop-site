@@ -6,7 +6,7 @@
 @import "./colors.scss";
 @import "./animation.scss";
 @import "./shadow.scss";
-@import "./buttons.scss";
+@import "./links.scss";
 
 // global styles
 html {
@@ -69,6 +69,21 @@ body {
           margin: auto;
         }
       }
+    }
+  }
+}
+hr {
+  height: 1px;
+  border: none;
+  background-color: $text;
+
+  @include breakpoint(mobile, down) {
+    &.mobile-hr {
+      display: block;
+
+      height: qpx;
+      border: none;
+      background-color: $black;
     }
   }
 }

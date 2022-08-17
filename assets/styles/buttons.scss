@@ -1,4 +1,6 @@
 @import "./colors.scss";
+@import "./shadow.scss";
+@import "./fonts.scss";
 @import "./animation.scss";
 
 .btn {
@@ -6,7 +8,6 @@
   height: 56px;
   border-radius: 50px;
 }
-
 a.btn {
   width: 200px;
   height: 56px;
