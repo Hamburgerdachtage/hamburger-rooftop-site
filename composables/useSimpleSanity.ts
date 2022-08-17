@@ -1,3 +1,4 @@
+// import { useSanity } from "@nuxtjs/sanity"
 
 export async function useSimpleSanity(queryString: string | typeof groq, reference:string = null) {
   try {

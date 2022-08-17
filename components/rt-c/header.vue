@@ -15,6 +15,11 @@
 
 <script setup lang="ts">
 import HDTLogo from "../../assets/images/HDT_Logo.svg"
+import { useSimpleSanity } from "../../composables"
+// const sanity = useSanity()
+
+const route = useRoute()
+const isMain = computed(() => route.path === '/')
 
 const { headline, subline, image, useProps } = defineProps({
   headline: {
@@ -23,7 +28,7 @@ const { headline, subline, image, useProps } = defineProps({
   },
   subline: {
     type: Array,
-    default: () => ([])
+    default: () => (null)
   },
   image: {
     type: Object,
@@ -44,7 +49,7 @@ const currentHeadline = computed(() => {
   return headerData.headline
 })
 const currentSubline = computed(() => {
-  if (subline) {
+  if (isMain) {
     return subline
   }
   return headerData.subline

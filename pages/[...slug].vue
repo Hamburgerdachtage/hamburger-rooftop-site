@@ -29,14 +29,14 @@ const { data } = await useAsyncData(`${slug.value}`, () => sanity.fetch(query.va
 
 console.log("index", { slug: slug.value, query: query.value, data, raw: data._rawValue })
 const items = data._rawValue
-
+console.log(items)
 
 async function setData() {
   const items = data._rawValue
-  const { title, subline, content } = items;
-  console.log({ title, subline, content })
+  const { title, summary, content } = items;
+  console.log({ title, summary, content })
   headline.value = title
-  subHeadline.value = subline
+  subHeadline.value = summary
   text.value = content
 }
 
