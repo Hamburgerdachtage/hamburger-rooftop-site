@@ -34,8 +34,11 @@
         </div>
       </div>
       <div v-if="length" class="length"><b>Dauer:</b> {{ length }}</div>
-      <div v-if="themes" class="themes"><b>Themes: </b>
-        <span class="theme" v-for="theme in themes" :key="theme._key">{{ theme.theme }}</span>
+      <div v-if="themes.length > 0" class="themes"><b>Themes: </b>
+        <template v-for="theme in themes" :key="theme._key">
+          <span class="theme">{{ theme.theme }}</span>
+        </template>
+
       </div>
 
       <div v-if="tips" class="tips"><b>Wissenswertes:</b> {{ tips }}</div>
