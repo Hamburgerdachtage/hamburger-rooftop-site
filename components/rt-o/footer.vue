@@ -8,8 +8,9 @@
         <logo class="obenstadt-logo" />
 
         <div class="footer-links flex-row">
-          <div class="copy">© 2022 <a href="https:www.obenstadt.de" class="footer-link">obenstadt.de</a></div>
+          <div class="copy">© 2022 <a href="https://www.obenstadt.de" class="footer-link">obenstadt.de</a></div>
           <NuxtLink class="footer-link" to="/impressum">Impressum</NuxtLink>
+          <NuxtLink class="footer-link" to="/Datenschutz">Datenschutz</NuxtLink>
         </div>
 
       </div>
