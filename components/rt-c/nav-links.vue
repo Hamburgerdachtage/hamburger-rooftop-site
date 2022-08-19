@@ -13,7 +13,10 @@
             <rt-o-nav-item class="nav-link no-underline" :text="link.text" :url="link.path" />
           </li>
         </template>
-
+        <li class="nav-list-item">
+          <rt-o-nav-item class="nav-link no-underline" text="FAQ" url="/faq" />
+          <!-- <NuxtLink to="/faq">FAQ</NuxtLink> -->
+        </li>
       </ul>
 
     </div>

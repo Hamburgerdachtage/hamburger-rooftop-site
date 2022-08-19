@@ -41,9 +41,9 @@ $font-sizes-mobile: (
 /// @require $font-sizes
 /// @require $font-sizes-mobile
 @mixin fontSize($size) {
-  @if map-has-key($fontSizes, $size) {
+  @if map-has-key($font-sizes, $size) {
     // return the correct font size
-    font-size: map-get($fontSizes, $size);
+    font-size: map-get($font-sizes, $size);
     @content;
   }
   // If the key doesn't exist in the map
