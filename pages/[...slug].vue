@@ -16,7 +16,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const sanity = useSanity()
-const slug = computed(() => route.path.replace('/', ''))
+const slug = computed(() => route.path.split('/')[1])
 const query = computed(() => groq`*[_type == "article" && slug.current == "${slug.value}"][0] {
   ...
 }`)
