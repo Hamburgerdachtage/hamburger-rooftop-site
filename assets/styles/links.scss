@@ -16,3 +16,10 @@
     background-color: $mint-dark;
   }
 }
+
+a {
+  color: $magenta;
+  * {
+    color: $magenta
+  }
+}
