@@ -27,13 +27,13 @@
       </div>
 
       <div v-if="location" class="location"><b>Ort:</b> {{ location }}</div>
-      <div v-if="times" class="times flex-row">
+      <!-- <div v-if="times" class="times flex-row">
         <div class="time-container" v-for="time in times" :key="time._key">
           <div class="date green-bold">{{ new Date(time.eventTime).toDateString() }}</div>
           <div class="date green-bold">{{ new Date(time.eventTime).toLocaleTimeString() }}</div>
         </div>
-      </div>
-
+      </div> -->
+      <rt-o-event-times :times="[...times]" />
       <div v-if="length" class="length"><b>Dauer:</b> {{ length }}</div>
       <div v-if="themes.length > 0" class="themes"><b>Themes: </b>
         <template v-for="theme in themes" :key="theme._key">
