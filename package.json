@@ -20,6 +20,7 @@
     "@nuxtjs/style-resources": "^1.2.1",
     "@vueuse/core": "^9.1.0",
     "@vueuse/nuxt": "^9.1.0",
+    "date-fns": "^2.29.2",
     "normalize-scss": "^7.0.1",
     "sass-loader": "^13.0.2"
   }

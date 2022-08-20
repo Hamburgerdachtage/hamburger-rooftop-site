@@ -77,7 +77,7 @@ const getExternalLinkData = async () => {
     const { data } = await useAsyncData(`navLinks`, () => sanity.fetch(query)) as Record<string, any>
 
     const items = data._rawValue
-    console.log("nav", { query, items })
+
     return items
   } catch (error) {
     console.error("getProgramData", error)
@@ -92,7 +92,7 @@ externalLinks.value = navLinks
 @import "../../assets/styles/index.scss";
 
 .nav-links {
-  color: $bismark;
+  color: $white;
 
 
 

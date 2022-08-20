@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <nav class="slideout shadow-hover" :class="{ mint, show }">
-      <slot />
 
-    </nav>
-  </div>
+  <nav class="slideout shadow-hover" :class="{ show }">
+    <slot />
+
+  </nav>
+
 
 </template>
 
@@ -30,19 +30,11 @@ defineProps({
   height: 600px;
   width: 375px;
   transition: 500ms ease-in-out;
+  z-index: 201;
 
   @include breakpoint(mobile, down) {
     height: 100vh;
     width: 100vw;
-  }
-
-  &.mint {
-    background-color: $mint-light;
-    color: $white;
-
-    >* {
-      color: $white;
-    }
   }
 
 

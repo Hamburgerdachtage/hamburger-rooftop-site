@@ -38,12 +38,20 @@ const handleClick = () => {
 </script>
 
 <style scoped lang="scss">
-@import "../../assets/styles/spaces.scss";
+@import "../../assets/styles/index.scss";
 
 .hamburger-container {
   cursor: pointer;
   z-index: 500;
   padding: $space-small;
+  @include transition();
+
+  &:hover {
+    rect {
+      fill: $white;
+    }
+
+  }
 
   .line {
     transform-origin: left;

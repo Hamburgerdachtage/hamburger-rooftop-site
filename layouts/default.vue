@@ -1,8 +1,8 @@
 <template>
   <div class="outside">
-    <div class="flex-row-reverse">
-      <rt-o-hamburger @open="toggleNav" @close="toggleNav"></rt-o-hamburger>
-      <rt-o-slide-out :show="showNav" mint>
+    <div class="nav-wrapper flex-row-reverse">
+      <rt-o-hamburger @open="toggleNav" @close="toggleNav" />
+      <rt-o-slide-out :show="showNav" class="bg-mintDark">
         <rt-c-nav-links />
       </rt-o-slide-out>
     </div>
@@ -68,9 +68,11 @@ navData.value = await getNavData()
   }
 }
 
+
 .default-layout {
   z-index: 100;
   height: 100%;
+  margin-top: $space-large;
 
   .nav-links-wrapper {
     color: $white;

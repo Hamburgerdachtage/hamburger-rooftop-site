@@ -1,8 +1,8 @@
 <template>
   <header class="main-header flex-row">
     <NuxtLink to="/">
-      <SanityImage v-if="image" :asset-id="image.asset._ref" alt="Logo" class="logo" />
-      <HDTLogo v-else class="logo" />
+      <!-- <SanityImage v-if="image" :asset-id="image.asset._ref" alt="Logo" class="logo" /> -->
+      <HDTLogo class="logo" />
     </NuxtLink>
     <div class="headline-container">
       <h1 v-if="headline" class="header-title">{{ headline }}</h1>

@@ -5,15 +5,18 @@
 
 .menu-link {
   @include transition();
-  color: $bismark;
+  color: $white;
   padding: $space-small;
   width: calc(100% - (2 * $space-small));
   display: block;
+  @include transition();
 
   &:hover {
     color: $white;
-    @include text-shadow();
-    background-color: $mint-dark;
+   text-decoration: underline;
+   text-decoration-thickness: 4px;
+   text-underline-offset: 8px;
+    
   }
 }
 

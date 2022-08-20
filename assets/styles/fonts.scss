@@ -159,6 +159,11 @@ p,
   text-decoration: none;
 }
 
+.bold {
+  font-family: $font-bold;
+  font-weight: bold;
+}
+
 :export {
   fontRegular: $font-regular;
   fontSemiBold: $font-bold;
