@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="147px" height="68px" viewBox="0 0 147 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>To Top Button</title>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HDT-Programm-L" transform="translate(-1147.000000, -9016.000000)">
+            <g id="Footer-/-L" transform="translate(0.000000, 9016.000000)">
+                <g id="To-Top-Button" transform="translate(1147.000000, 0.000000)">
+                    <g id="Button" transform="translate(39.000000, 0.000000)">
+                        <circle id="Oval" fill="#D91C5C" transform="translate(34.000000, 34.000000) scale(-1, 1) translate(-34.000000, -34.000000) " cx="34" cy="34" r="34"></circle>
+                        <g id="Icon" transform="translate(34.000000, 34.000000) scale(1, -1) rotate(90.000000) translate(-34.000000, -34.000000) translate(22.000000, 26.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            <line x1="0" y1="8" x2="23" y2="8" id="Path-2"></line>
+                            <polyline id="Path-1" points="16 0 24 8 16 16"></polyline>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

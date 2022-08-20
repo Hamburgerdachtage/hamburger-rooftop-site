@@ -4,7 +4,7 @@ $breakpoints: (
   tablet: 768px,
   laptop: 1080px,
   large: 1280px,
-  x-large: 1440px
+  x-large: 1440px,
 );
 
 /// Mixin to manage responsive breakpoints
@@ -30,9 +30,8 @@ $breakpoints: (
         @content;
       }
     }
-   
   }
- 
+
   // If the key doesn't exist in the map
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
@@ -43,7 +42,7 @@ $breakpoints: (
 // Usage
 // .selector {
 //   color: red;
-  
+
 //   @include respond-to('small') {
 //     color: blue;
 //   }

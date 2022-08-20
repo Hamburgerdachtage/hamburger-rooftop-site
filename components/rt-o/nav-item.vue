@@ -1,19 +1,27 @@
 <template>
   <div class="nav-link external" v-if="external">
-    <a :href="url">{{text}}</a>
+    <a class="no-underline menu-link" :href="url">{{ text }}</a>
   </div>
   <div class="nav-link" v-else>
-    <NuxtLink :to="url">{{text}}</NuxtLink>
+    <NuxtLink class="no-underline menu-link" :to="url">{{ text }}</NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
 defineProps({
   external: Boolean,
-  url:{type:String, default: null},
-  text:{type:String, default: null},
+  url: { type: String, default: null },
+  text: { type: String, default: null },
 
 })
- 
+
 </script>
+<style scoped lang="scss">
+@import "../../assets/styles";
+
+.menu-link {
+  @include font-size(h4);
+  font-weight: bold;
+}
+</style>
 

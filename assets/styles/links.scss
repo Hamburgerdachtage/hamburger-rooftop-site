@@ -1,0 +1,28 @@
+@import "../styles/animation.scss";
+@import "../styles/colors.scss";
+@import "../styles/fonts.scss";
+@import "../styles/shadow.scss";
+
+.menu-link {
+  @include transition();
+  color: $white;
+  padding: $space-small;
+  width: calc(100% - (2 * $space-small));
+  display: block;
+  @include transition();
+
+  &:hover {
+    color: $white;
+   text-decoration: underline;
+   text-decoration-thickness: 4px;
+   text-underline-offset: 8px;
+    
+  }
+}
+
+a {
+  color: $magenta;
+  * {
+    color: $magenta
+  }
+}
