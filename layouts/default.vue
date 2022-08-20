@@ -7,8 +7,15 @@
       </rt-o-slide-out>
     </div>
 
+
+    <rt-o-dots>
+      <div class="main-container">
+        <slot name="main-header"></slot>
+      </div>
+
+    </rt-o-dots>
     <div class="default-layout main-container ">
-      <slot name="main-header"></slot>
+
       <main class="flex-column">
         <slot name="main-slot" />
       </main>
@@ -53,6 +60,7 @@ navData.value = await getNavData()
 
 .outside {
   min-height: 100vh;
+  overflow: hidden;
 
   @include breakpoint(mobile, down) {
     max-width: 100vw;
@@ -61,7 +69,7 @@ navData.value = await getNavData()
 }
 
 .default-layout {
-
+  z-index: 100;
   height: 100%;
 
   .nav-links-wrapper {

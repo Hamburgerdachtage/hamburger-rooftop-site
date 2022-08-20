@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout>
     <template #main-header>
-      <rt-c-header :headline="header" :subline="headerText" />
+      <rt-c-header :headline="header" :subline="headerText" :image="logo" />
     </template>
     <template #main-slot>
       <rt-o-program-filter :hash-links="hashLinks" :active-hash="currentHash" @hash="handleHash" />

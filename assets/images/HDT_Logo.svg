@@ -4,7 +4,7 @@
     <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="HDT-Programm-L" transform="translate(-45.000000, -19.000000)" fill-rule="nonzero">
             <g id="HDT_Logo_FIN-Copy" transform="translate(45.000000, 19.000000)">
-                <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="370" height="370"></rect>
+                <rect id="Rectangle" x="0" y="0" width="370" height="370"></rect>
                 <g id="Group" transform="translate(226.000000, 230.000000)">
                     <path d="M119,59.5007077 C119,92.3617622 92.3618953,119 59.5002973,119 C26.6393503,119 0,92.3617622 0,59.5007077 C0,26.6382805 26.6393499,0 59.5002973,0 C92.3618953,0 119,26.6382805 119,59.5007077 Z" id="Path" fill="#DA1C5C"></path>
                     <g transform="translate(12.106799, 50.680376)" fill="#FFFFFF">

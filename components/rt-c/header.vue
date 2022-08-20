@@ -1,8 +1,8 @@
 <template>
   <header class="main-header flex-row">
     <NuxtLink to="/">
-      <!-- <SanityImage v-if="image" :asset-id="image" alt="Logo" /> -->
-      <HDTLogo />
+      <SanityImage v-if="image" :asset-id="image.asset._ref" alt="Logo" class="logo" />
+      <HDTLogo v-else class="logo" />
     </NuxtLink>
     <div class="headline-container">
       <h1 v-if="headline" class="header-title">{{ headline }}</h1>
@@ -46,6 +46,8 @@ const { headline, subline, image, } = defineProps({
 @import "../../assets/styles/index.scss";
 
 header.main-header {
+  z-index: 101;
+
 
   @include breakpoint(mobile, down) {
     flex-direction: column;
@@ -57,6 +59,7 @@ header.main-header {
   .logo {
     height: 370px;
     width: 370px;
+    z-index: 101;
 
     @include breakpoint(mobile, down) {
       height: 141px;
@@ -67,12 +70,13 @@ header.main-header {
 
 
   >.headline-container {
-    margin: $space-xxlarge auto 0 $space-xlarge;
+    z-index: 101;
+    margin: calc($space-xxlarge + $space-xlarge) auto 0 $space-xlarge;
     width: $component-container;
 
     // margin: auto;
     @include breakpoint(mobile, down) {
-      margin: 0;
+      margin: $space-medium 0 0 0;
       width: 100%;
       padding: $space-small
     }
