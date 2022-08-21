@@ -65,6 +65,11 @@ header.main-header {
       height: 141px;
       width: 141px;
     }
+
+    &svg {
+
+      background-color: aqua;
+    }
   }
 
 
@@ -73,6 +78,7 @@ header.main-header {
     z-index: 101;
     margin: calc($space-xxlarge + $space-xlarge) auto 0 $space-xlarge;
     width: $component-container;
+
 
     // margin: auto;
     @include breakpoint(mobile, down) {
