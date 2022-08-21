@@ -1,16 +1,16 @@
 <template>
-  <div class="festival-dates">
-    <div class="year">
-      <div class="days flex-row">
+  <div class="festival-dates no-select">
+    <div class="year no-select">
+      <div class="days flex-row no-select">
         <template v-for="(day, i) in days" :key="day.getDate()">
 
 
 
-          <div class="day flex-column">
-            <div class="date" :class="{ active: active(day) }">
+          <div class="day flex-column no-select">
+            <div class="date no-select" :class="{ active: active(day) }">
               {{ day.getDate() }}
             </div>
-            <div class="month">
+            <div class="month no-select">
               {{ monthNames[i] }}
             </div>
             <div class="is-today" :class="{ active: active(day) }"></div>
@@ -18,7 +18,7 @@
 
         </template>
       </div>
-      <div class="year-numbers">
+      <div class="year-numbers no-select">
         `{{ 22 }}
       </div>
     </div>
