@@ -73,19 +73,19 @@ const mapDateAndTimes = (times: Time[]) => {
 
       return date.date === dateString
     })
-    console.log("start", { dateString, timeString, times, acc, dateExists })
+
     if (dateExists) {
       const addTimeTo = acc.filter(date => {
 
         return date.date === dateString
       })[0]
       addTimeTo.times.push(timeString)
-      console.log("dateExists", { dateString, timeString, times, acc })
+
       return loop(times, acc)
     } if (acc.length > 0 || !dateExists) {
 
       acc.push(addNewDateObj(dateString, timeString))
-      console.log("newDate", { dateString, timeString, times, acc })
+
       return loop(times, acc)
     }
 

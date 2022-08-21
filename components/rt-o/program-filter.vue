@@ -1,12 +1,16 @@
 <template>
-  <div class="program-filter flex-row flex-center-align flex-center-justify">
-    <template v-for="(hash, i) in hashLinks" :key="hash">
-      <button class="filter-button flex-column" :class="{ active: activeHash === hash }" @click="handleClick(hash)">
-        <div v-if="numbers" class="number">0{{ numbers[i] }}</div>
-        <div class="hash">{{ hash.replace('#', '') }}</div>
-        <arrow class="arrow" />
-      </button>
-    </template>
+  <div class="program-filter ">
+    <h4 class="filter-text">Alle Programmteile - schnell fündig werden</h4>
+    <div class="button-wrapper flex-row flex-center-align flex-center-justify">
+      <template v-for="(hash, i) in hashLinks" :key="hash">
+        <button class="filter-button flex-column" :class="{ active: activeHash === hash }" @click="handleClick(hash)">
+          <div v-if="numbers" class="number">0{{ numbers[i] }}</div>
+          <div class="hash">{{ hash.replace('#', '') }}</div>
+          <arrow class="arrow" />
+        </button>
+      </template>
+    </div>
+
 
   </div>
 </template>
@@ -46,9 +50,15 @@ function handleClick(hash) {
 .program-filter {
   margin: $space-large 0;
 
-  @include breakpoint(mobile, down) {
-    flex-direction: column;
+  .button-wrapper {
+    @include breakpoint(mobile, down) {
+      flex-direction: column;
 
+    }
+  }
+
+  .filter-text {
+    margin-bottom: $space-small;
   }
 }
 
