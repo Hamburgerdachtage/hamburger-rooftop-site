@@ -7,16 +7,17 @@
     </header>
     <div class="page-links">
       <ul v-if="hasPageLinks" class="nav-list">
-        <template v-for="link in pageLinks" :key="link.id">
+        <li class="nav-list-item">
+          <rt-o-nav-item class="nav-link no-underline" text="How To" url="/howto" />
+          <!-- <NuxtLink to="/faq">FAQ</NuxtLink> -->
+        </li>
+        <template v-for="link in pageLinks.reverse()" :key="link.id">
           <li class="nav-list-item">
 
             <rt-o-nav-item class="nav-link no-underline" :text="link.text" :url="link.path" />
           </li>
         </template>
-        <li class="nav-list-item">
-          <rt-o-nav-item class="nav-link no-underline" text="FAQ" url="/faq" />
-          <!-- <NuxtLink to="/faq">FAQ</NuxtLink> -->
-        </li>
+
       </ul>
 
     </div>
