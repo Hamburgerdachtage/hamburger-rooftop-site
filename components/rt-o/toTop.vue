@@ -1,9 +1,9 @@
 <template>
-  <ClientOnly>
-    <div class="to-top-container">
-      <toTop class="to-top-icon" @pointerdown="handleClick" />
-    </div>
-  </ClientOnly>
+  <!-- <ClientOnly> -->
+  <div class="to-top-container">
+    <toTop class="to-top-icon" @pointerdown="handleClick" />
+  </div>
+  <!-- </ClientOnly> -->
 </template>
 
 <script setup lang="ts">

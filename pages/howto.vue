@@ -46,7 +46,7 @@ const faqHashes = computed(() => faqData.value.map(item => `#${item.headline.toL
 
 const currentHash = ref<string>(null)
 function handleHash(hash) {
-  console.log('handleHash', { hash })
+
   if (!hash) {
     return
   }
@@ -64,7 +64,7 @@ const filteredFaq = computed(() => {
   return faqData.value.filter(item => {
     const headline = item.headline.toLowerCase()
     const hash = currentHash.value.replace('#', '')
-    console.log("filteredFaq", { headline, hash })
+
     return headline === hash
   })
 })

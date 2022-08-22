@@ -27,12 +27,7 @@
       </div>
 
       <div v-if="location" class="location"><b>Ort:</b> {{ location }}</div>
-      <!-- <div v-if="times" class="times flex-row">
-        <div class="time-container" v-for="time in times" :key="time._key">
-          <div class="date green-bold">{{ new Date(time.eventTime).toDateString() }}</div>
-          <div class="date green-bold">{{ new Date(time.eventTime).toLocaleTimeString() }}</div>
-        </div>
-      </div> -->
+
       <rt-o-event-times :times="[...times]" />
       <div v-if="length" class="length"><b>Dauer:</b> {{ length }}</div>
       <div v-if="themes.length > 0" class="themes"><b>Themes: </b>
@@ -85,7 +80,7 @@ const isMobile = computed(() => {
 .event {
   margin-top: $space-xlarge;
 
-  @include breakpoint(tablet, down) {
+  @include breakpoint(mobile, down) {
     &.flex-row {
       flex-direction: column;
     }
@@ -97,7 +92,7 @@ const isMobile = computed(() => {
     height: 268px;
     margin: $space-large $space-medium auto 0;
 
-    @include breakpoint(tablet, down) {
+    @include breakpoint(mobile, down) {
       width: 121px;
       height: 121px;
       margin: auto $space-tiny auto $space-tiny;
@@ -108,7 +103,7 @@ const isMobile = computed(() => {
     margin-bottom: calc($space-large - 5px);
 
 
-    @include breakpoint(tablet, down) {
+    @include breakpoint(mobile, down) {
       &.mobile-hr {
 
         margin: $space-tiny auto;
@@ -128,7 +123,7 @@ const isMobile = computed(() => {
     //   display: none;
     // }
 
-    @include breakpoint(tablet, down) {
+    @include breakpoint(mobile, down) {
       // .mobile-hr {
       //   display: block;
       // }
@@ -145,7 +140,7 @@ const isMobile = computed(() => {
       margin: 0 0 $space-smaller 0;
     }
 
-    @include breakpoint(tablet, down) {
+    @include breakpoint(mobile, down) {
       width: 100%;
       // margin: auto $space-tiny auto $space-tiny;
     }
