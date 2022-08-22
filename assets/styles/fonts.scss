@@ -35,6 +35,27 @@ $font-sizes-mobile: (
   subline: 18px,
   p: 16px,
 );
+$line-heights: (
+  h1: 72px,
+  h2: 64px,
+  h3: 40px,
+  h4: 32px,
+  h5: 24px,
+  h6: 18px,
+  subline: 24px,
+  p: 32px,
+);
+$line-heights-mobile: (
+  h1: 48px,
+  h2: 40px,
+  h3: 32px,
+  h4: 24px,
+  h5: 24px,
+  h6: 18px,
+  subline: 36px,
+  p: 30px,
+);
+
 /// Mixin to manage responsive breakpoints
 /// @author Joe Czarnecki
 /// @param {String} $size subline, copy, h1-h6
@@ -44,6 +65,33 @@ $font-sizes-mobile: (
   @if map-has-key($font-sizes, $size) {
     // return the correct font size
     font-size: map-get($font-sizes, $size);
+    @content;
+  }
+  @if map-has-key($font-sizes-mobile, $size) {
+
+    @include breakpoint(tablet, down) {
+      font-size: map-get($font-sizes-mobile, $size);
+    }
+    @content;
+  }
+ 
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$fontSize}`. "
+        + "Available breakpoints are: #{map-keys($fontSizes)}.";
+  }
+}
+@mixin lineHeight($size) {
+  @if map-has-key($line-heights, $size) {
+    // return the correct font size
+    line-height: map-get($line-heights, $size);
+    @content;
+  }
+  @if map-has-key($line-heights-mobile, $size) {
+    @include breakpoint(tablet, down) {
+      line-height: map-get($line-heights, $size);
+    }
+    
     @content;
   }
   // If the key doesn't exist in the map
@@ -68,89 +116,34 @@ h6 {
   font-weight: 600;
   margin: 0 0 $space-medium 0;
 }
-h1 {
-  font-size: map-get($font-sizes, h1);
-  @include breakpoint(mobile, down) {
-    font-size: map-get($font-sizes-mobile, h1);
+@each $key, $value in $font-sizes {
+  #{"" + $key} {
+    @include fontSize(#{$key});
+    @include lineHeight(#{$key});
   }
 }
-h2 {
-  font-size: map-get($font-sizes, h2);
-  line-height: 56px;
-  @include breakpoint(mobile, down) {
-    font-size: map-get($font-sizes-mobile, h2);
-  }
-}
-h3 {
-  font-size: map-get($font-sizes, h3);
-  @include breakpoint(mobile, down) {
-    font-size: map-get($font-sizes-mobile, h3);
-  }
-}
-h4 {
-  font-size: map-get($font-sizes, h4);
-  @include breakpoint(mobile, down) {
-    font-size: map-get($font-sizes-mobile, h4);
-  }
-}
-h5 {
-  font-size: map-get($font-sizes, h5);
-  @include breakpoint(mobile, down) {
-    font-size: map-get($font-sizes-mobile, h5);
-  }
-}
-h6 {
-  font-size: map-get($font-sizes, h6);
-  @include breakpoint(mobile, down) {
-    font-size: map-get($font-sizes-mobile, h6);
-  }
-}
+
 
 body,
-p,
 .std {
   font-family: $font-regular;
-  font-size: map-get($font-sizes, p);
-  @include breakpoint(mobile, down) {
-    font-size: map-get($font-sizes-mobile, p);
-  }
-
-  line-height: 32px;
-}
-@mixin font-size($size-key) {
-  font-size: map-get($font-sizes, $size-key);
-  @include breakpoint(mobile, down) {
-    font-size: map-get($font-sizes-mobile, $size-key);
-  }
-}
-p,
-.std {
+  @include fontSize(p);
+  @include lineHeight(p);
   margin: 0 0 $space-small 0;
 }
-.subline {
-  > * {
-    font-size: map-get($font-sizes, subline);
-    @include breakpoint(mobile, down) {
-      font-size: map-get($font-sizes-mobile, subline);
-    }
-    line-height: 36px;
-  }
-}
+
 .pre-title {
-  font-size: map-get($font-sizes, h5);
+  @include fontSize(h5);
+
   padding-bottom: $space-small;
-  @include breakpoint(mobile, down) {
-    font-size: map-get($font-sizes-mobile, h5);
-  }
+  
   font-weight: bold;
   color: $magenta;
 }
 
 .green-bold {
-  font-size: map-get($font-sizes, h5);
-  @include breakpoint(mobile, down) {
-    font-size: map-get($font-sizes-mobile, h5);
-  }
+  @include fontSize(h5);
+
   font-weight: bold;
   color: $mint-dark;
 }

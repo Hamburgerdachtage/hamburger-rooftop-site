@@ -4,7 +4,8 @@
       <rt-c-header :headline="header" :subline="headerText" />
     </template>
     <template #main-slot>
-      <rt-c-faq :faq-data="faqData" />
+      <rt-o-hash-filter :hash-links="faqHashes" :active-hash="currentHash" @hash="handleHash" />
+      <rt-c-faq :faq-data="filteredFaq" />
 
     </template>
 
@@ -41,6 +42,30 @@ const getFaqData = async () => {
 }
 const faqData = ref([])
 faqData.value = await getFaqData()
+const faqHashes = computed(() => faqData.value.map(item => `#${item.headline.toLowerCase()}`))
 
+const currentHash = ref<string>(null)
+function handleHash(hash) {
+  console.log('handleHash', { hash })
+  if (!hash) {
+    return
+  }
+  if (currentHash.value === hash) {
+    return currentHash.value = null
+  }
+  currentHash.value = hash
 
+}
+
+const filteredFaq = computed(() => {
+  if (!currentHash.value) {
+    return faqData.value
+  }
+  return faqData.value.filter(item => {
+    const headline = item.headline.toLowerCase()
+    const hash = currentHash.value.replace('#', '')
+    console.log("filteredFaq", { headline, hash })
+    return headline === hash
+  })
+})
 </script>

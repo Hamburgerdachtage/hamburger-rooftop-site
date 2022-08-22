@@ -85,7 +85,7 @@ const isMobile = computed(() => {
 .event {
   margin-top: $space-xlarge;
 
-  @include breakpoint(mobile, down) {
+  @include breakpoint(tablet, down) {
     &.flex-row {
       flex-direction: column;
     }
@@ -97,7 +97,7 @@ const isMobile = computed(() => {
     height: 268px;
     margin: $space-large $space-medium auto 0;
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       width: 121px;
       height: 121px;
       margin: auto $space-tiny auto $space-tiny;
@@ -108,7 +108,7 @@ const isMobile = computed(() => {
     margin-bottom: calc($space-large - 5px);
 
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       &.mobile-hr {
 
         margin: $space-tiny auto;
@@ -128,7 +128,7 @@ const isMobile = computed(() => {
     //   display: none;
     // }
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       // .mobile-hr {
       //   display: block;
       // }
@@ -145,7 +145,7 @@ const isMobile = computed(() => {
       margin: 0 0 $space-smaller 0;
     }
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       width: 100%;
       // margin: auto $space-tiny auto $space-tiny;
     }

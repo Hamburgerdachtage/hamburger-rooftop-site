@@ -6,7 +6,7 @@
         <button class="filter-button flex-column" :class="{ active: activeHash === hash }" @click="handleClick(hash)">
           <div v-if="numbers" class="number">0{{ numbers[i] }}</div>
           <div class="hash">{{ hash.replace('#', '') }}</div>
-          <arrow class="arrow" />
+          <arrow v-if="!noArrow" class="arrow" />
         </button>
       </template>
     </div>
@@ -22,7 +22,8 @@ const props = defineProps({
     type: Array,
     default: () => ([])
   },
-  activeHash: { type: String, default: null }
+  activeHash: { type: String, default: null },
+  noArrow: Boolean
 
 })
 
@@ -37,7 +38,6 @@ function handleClick(hash) {
     setTimeout(() => {
       location.href = hash
     }, 500)
-
 }
 
 
@@ -51,7 +51,9 @@ function handleClick(hash) {
   margin: $space-large 0;
 
   .button-wrapper {
-    @include breakpoint(mobile, down) {
+    flex-wrap: wrap;
+
+    @include breakpoint(tablet, down) {
       flex-direction: column;
 
     }
@@ -70,6 +72,7 @@ function handleClick(hash) {
   border-radius: 16px;
   margin: $space-small;
   color: $bismark;
+
   @include transition();
 
   &:hover {
@@ -97,7 +100,7 @@ function handleClick(hash) {
     }
   }
 
-  @include breakpoint(mobile, down) {
+  @include breakpoint(tablet, down) {
     width: 100%;
     height: 75px;
     margin: $space-tiny auto;
@@ -105,20 +108,20 @@ function handleClick(hash) {
   }
 
   .number {
-    @include font-size(p);
+    @include fontSize(p);
     font-weight: bold;
     margin: $space-tiny auto 0 $space-tiny;
     justify-self: flex-start;
     align-self: flex-start;
     color: $bismark;
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       margin: auto $space-tiny auto $space-tiny;
     }
   }
 
   .hash {
-    @include font-size(h3);
+    @include fontSize(h3);
     font-weight: bold;
     color: $bismark;
     margin: $space-small auto auto $space-tiny;
@@ -127,7 +130,7 @@ function handleClick(hash) {
       text-transform: capitalize;
     }
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       margin: auto auto auto $space-tiny;
     }
   }
@@ -140,7 +143,7 @@ function handleClick(hash) {
       stroke: $bismark;
     }
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       margin: auto $space-tiny auto auto;
     }
   }

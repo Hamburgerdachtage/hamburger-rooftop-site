@@ -18,7 +18,7 @@ a.btn {
   font-family: $font-regular;
 
   text-align: center;
-  @include font-size(h5);
+  @include fontSize(h5);
   font-weight: bold;
 
   cursor: pointer;

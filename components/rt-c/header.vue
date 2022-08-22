@@ -49,7 +49,7 @@ header.main-header {
   z-index: 101;
 
 
-  @include breakpoint(mobile, down) {
+  @include breakpoint(tablet, down) {
     flex-direction: column;
     max-width: 100%;
     padding-right: $space-small;
@@ -61,7 +61,7 @@ header.main-header {
     width: 370px;
     z-index: 101;
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       height: 141px;
       width: 141px;
     }
@@ -81,7 +81,7 @@ header.main-header {
 
 
     // margin: auto;
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       margin: $space-medium 0 0 0;
       width: 100%;
       padding: $space-small

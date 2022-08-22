@@ -61,7 +61,7 @@
       left: 10%;
     }
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       &.d1 {
 
         width: 195px;

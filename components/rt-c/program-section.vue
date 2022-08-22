@@ -41,7 +41,7 @@ defineProps({
     margin: 0 0 0 auto;
     width: $space-event-image;
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       width: 100%;
     }
   }

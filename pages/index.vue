@@ -6,7 +6,7 @@
 
     <template #main-slot>
       <rt-o-festival-dates from="2022-09-16" to="2022-09-18" />
-      <rt-o-program-filter :hash-links="hashLinks" :active-hash="currentHash" @hash="handleHash" />
+      <rt-o-hash-filter :hash-links="hashLinks" :active-hash="currentHash" @hash="handleHash" />
       <rt-c-program-section :items="filteredProgram" />
       <rt-o-sponsors />
     </template>

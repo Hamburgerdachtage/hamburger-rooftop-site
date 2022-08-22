@@ -71,7 +71,7 @@ function getDaysBetween(startDate: Date, endDate: Date) {
 .festival-dates {
   margin: $space-xxlarge 0;
 
-  @include breakpoint(mobile, down) {
+  @include breakpoint(tablet, down) {
     margin-top: auto;
     margin-left: -$space-small;
     margin-right: -$space-small;
@@ -88,7 +88,7 @@ function getDaysBetween(startDate: Date, endDate: Date) {
     margin: auto 0 auto auto;
     display: flex;
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       width: 100vw;
       height: 127px;
       border-radius: 0px;
@@ -100,7 +100,7 @@ function getDaysBetween(startDate: Date, endDate: Date) {
       margin: -20px auto auto 40px;
       z-index: 101;
 
-      @include breakpoint(mobile, down) {
+      @include breakpoint(tablet, down) {
         margin: -32px auto auto auto;
       }
 
@@ -119,7 +119,7 @@ function getDaysBetween(startDate: Date, endDate: Date) {
       overflow: hidden;
       @include shadow-hover();
 
-      @include breakpoint(mobile, down) {
+      @include breakpoint(tablet, down) {
         width: 100px;
         height: 100px;
         margin-right: 6px;
@@ -133,7 +133,7 @@ function getDaysBetween(startDate: Date, endDate: Date) {
         font-weight: bold;
         margin: auto auto 0 auto;
 
-        @include breakpoint(mobile, down) {
+        @include breakpoint(tablet, down) {
           font-size: 50px;
         }
 
@@ -171,7 +171,7 @@ function getDaysBetween(startDate: Date, endDate: Date) {
       font-weight: bolder;
       margin: auto -20px auto auto;
 
-      @include breakpoint(mobile, down) {
+      @include breakpoint(tablet, down) {
         position: absolute;
         font-size: 90px;
         z-index: 1;

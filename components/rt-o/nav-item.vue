@@ -20,7 +20,7 @@ defineProps({
 @import "../../assets/styles";
 
 .menu-link {
-  @include font-size(h4);
+  @include fontSize(h4);
   font-weight: bold;
 }
 </style>

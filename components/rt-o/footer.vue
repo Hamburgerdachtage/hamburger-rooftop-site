@@ -61,7 +61,7 @@ footer {
     }
 
     .footer-links {
-      @include breakpoint(mobile, down) {
+      @include breakpoint(tablet, down) {
         flex-direction: column;
       }
 

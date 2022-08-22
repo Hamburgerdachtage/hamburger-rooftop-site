@@ -12,6 +12,17 @@ $global-animation-easing: ease-in-out;
   -webkit-transition: $for $time-in $type $time-out;
   -o-transition: $for $time-in $type $time-out;
 }
+@mixin transition-group(
+  $for: all,
+  $time-in: 0.8s,
+  $type: cubic-bezier(1, 0.5, 0.8, 1),
+  $time-out: 0.8s
+) {
+  transition: $for $time-in $type $time-out;
+  -moz-transition: $for $time-in $type $time-out;
+  -webkit-transition: $for $time-in $type $time-out;
+  -o-transition: $for $time-in $type $time-out;
+}
 
 :export {
   animationDuration: strip-unit($global-animation-duration);

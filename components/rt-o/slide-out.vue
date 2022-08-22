@@ -32,7 +32,7 @@ defineProps({
   transition: 500ms ease-in-out;
   z-index: 201;
 
-  @include breakpoint(mobile, down) {
+  @include breakpoint(tablet, down) {
     height: 100vh;
     width: 100vw;
   }

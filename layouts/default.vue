@@ -62,7 +62,7 @@ navData.value = await getNavData()
   min-height: 100vh;
   overflow: hidden;
 
-  @include breakpoint(mobile, down) {
+  @include breakpoint(tablet, down) {
     max-width: 100vw;
     overflow: hidden;
   }
@@ -88,7 +88,7 @@ navData.value = await getNavData()
     max-width: $inner-container;
     min-height: calc(100vh - (176px * 3));
 
-    @include breakpoint(mobile, down) {
+    @include breakpoint(tablet, down) {
       max-width: 100%;
       padding: $space-small;
     }
