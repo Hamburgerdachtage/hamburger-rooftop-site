@@ -2,6 +2,33 @@
 @import "./spaces.scss";
 @import "./breakpoints.scss";
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap");
+
+$fontTypes:(
+  ttf: 'trueType',
+  woff2: 'woff2',
+  woff: 'woff'
+);
+
+$fontFamilies: (
+  light: 'Barlow-Light',
+  regular: 'Barlow-Regular',
+  medium: 'Barlow-Medium',
+  semi-bold: 'Barlow-SemiBold',
+  bold: 'Barlow-Bold',
+  extra-bold: 'Barlow-ExtraBold',
+  black: 'Barlow-Black'
+);
+
+@each $key, $value in $fontFamilies {
+  
+    @font-face {
+      font-family: $value;
+      @each $file, $format in $fontTypes {
+      src: url(#{'~assets/fonts/' + $value + '.' + $file}), format($format)
+    }
+  }
+}
+
 // @font-face {
 //   font-family: Barlow-Regular;
 //   src: url(~assets/fonts/Barlow-Regular.ttf), format('truetype');
@@ -13,8 +40,8 @@
 
 // }
 
-$font-regular: Barlow;
-$font-bold: Barlow;
+$font-regular: 'Barlow-Regular'  sans-serif;
+$font-bold: 'Barlow-Bold'  sans-serif;
 $font-sizes: (
   h1: 48px,
   h2: 40px,
