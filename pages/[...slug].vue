@@ -17,8 +17,10 @@
 const route = useRoute()
 const sanity = useSanity()
 const slug = computed(() => route.path.split('/')[1])
-const query = computed(() => groq`*[_type == "article" && slug.current == "${slug.value}"][0] {
-  ...
+const query = computed(() => groq`*[_type == "article" && slug.current == "hamburgerdachtage-allgemein"][0] {
+  ...,
+  'slug': pageLink-> { 'current': slug.current },
+  'title': pageLink-> title
 }`)
 
 const headline = ref("")

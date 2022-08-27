@@ -7,16 +7,12 @@
     </header>
     <div class="page-links">
       <ul v-if="hasPageLinks" class="nav-list">
-        <li class="nav-list-item">
-          <rt-o-nav-item class="nav-link no-underline" text="How To" url="/howto" />
-        </li>
-        <template v-for="link in pageLinks" :key="link.id">
-          <li class="nav-list-item">
+        <template v-for="link in pageSlugs" :key="link.id">
+          <li v-if="link.isInNav" class="nav-list-item">
             <rt-o-nav-item class="nav-link no-underline" :text="link.text" :url="link.path" />
           </li>
         </template>
       </ul>
-
     </div>
     <footer>
       <ul v-if="hasExternalLinks" class="nav-list">
@@ -32,56 +28,44 @@
 </template>
 
 <script setup lang="ts">
+import { logger } from '@nuxt/kit';
+
 const sanity = useSanity()
 
-const pageLinks = ref([])
+const pageSlugs = ref([])
 const externalLinks = ref([])
 
-const hasPageLinks = computed(() => pageLinks.value.length > 0)
+const hasPageLinks = computed(() => pageSlugs.value && pageSlugs.value.length > 0)
 const hasExternalLinks = computed(() => externalLinks.value.length > 0)
 
-const getPageLinkData = async () => {
+const getLinkData = async () => {
   try {
-    const query = groq`*[_type == "article" && isInNav == true]{
+    const query = groq`*[_type == "navLinks" && title == "Menu Navigation"][0]{
+  ...,
+  pageLinks[]-> {
+    ...,
     'id':_id,
-      'text':title,
-     'path': slug.current,
-
-}`
-
-    const { data } = await useAsyncData(`pages`, () => sanity.fetch(query)) as Record<string, any>
-
-    const items = data._rawValue
-    return items
-  } catch (error) {
-    console.error("getProgramData", error)
-  }
-}
-
-pageLinks.value = await getPageLinkData()
-
-const getExternalLinkData = async () => {
-  try {
-    const query = groq`*[_type == "navLinks"][0]{
+    'text':title,
+    'path': slug.current,
+  },
   navLinks[]-> {
     link,
     text,
     'id': _id
   }
- 
 }`
 
 
     const { data } = await useAsyncData(`navLinks`, () => sanity.fetch(query)) as Record<string, any>
 
     const items = data._rawValue
-
     return items
   } catch (error) {
     console.error("getProgramData", error)
   }
 }
-const { navLinks } = await getExternalLinkData()
+const { navLinks, pageLinks } = await getLinkData()
+pageSlugs.value = pageLinks
 externalLinks.value = navLinks
 
 </script>
@@ -108,8 +92,5 @@ externalLinks.value = navLinks
     padding-left: 0;
   }
 
-  // .nav-list-item {
-  //   padding: 0 $space-small;
-  // }
 }
 </style>

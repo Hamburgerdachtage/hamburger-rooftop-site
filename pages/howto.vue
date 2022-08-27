@@ -27,7 +27,7 @@ logo.value = headerDataMain.image
 
 const getFaqData = async () => {
   try {
-    const query = groq`*[_type=='faq'] {
+    const query = groq`*[_type=='faq'] | order(order asc) {
       ...,
       questions[]->
     }`

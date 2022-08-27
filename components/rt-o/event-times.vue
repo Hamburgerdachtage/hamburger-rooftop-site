@@ -25,6 +25,7 @@
 <script setup lang="ts">
 
 import { PropType } from "vue";
+import { A } from "~~/dist/_nuxt/entry-d763969f.mjs";
 
 export interface Time {
   _key: string;
@@ -60,7 +61,9 @@ const mapDateAndTimes = (times: Time[]) => {
   function loop(times: Time[], acc: DateTime[]) {
     if (times.length === 0) {
 
-      return acc
+      return acc.sort((a,b)=>{
+        return new Date(a.date).getTime() - new Date(b.date).getTime()
+      })
     }
 
     const date = new Date(times.pop().eventTime)
