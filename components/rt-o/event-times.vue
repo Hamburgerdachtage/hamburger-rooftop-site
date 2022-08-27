@@ -24,9 +24,6 @@
 
 <script setup lang="ts">
 
-import { PropType } from "vue";
-import { A } from "~~/dist/_nuxt/entry-d763969f.mjs";
-
 export interface Time {
   _key: string;
   _type: "eventTime";

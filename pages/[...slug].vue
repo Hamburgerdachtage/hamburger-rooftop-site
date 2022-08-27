@@ -17,11 +17,7 @@
 const route = useRoute()
 const sanity = useSanity()
 const slug = computed(() => route.path.split('/')[1])
-const query = computed(() => groq`*[_type == "article" && slug.current == "hamburgerdachtage-allgemein"][0] {
-  ...,
-  'slug': pageLink-> { 'current': slug.current },
-  'title': pageLink-> title
-}`)
+const query = computed(() => groq`*[_type == "article" && slug.current == "${slug.value}"][0]`)
 
 const headline = ref("")
 const subHeadline = ref([])
@@ -30,7 +26,7 @@ const text = ref([])
 const { data } = await useAsyncData(`${slug.value}`, () => sanity.fetch(query.value)) as Record<string, any>
 
 const items = data._rawValue
-console.log(items)
+console.log("pages",{items, query: query.value})
 
 async function setData() {
   const items = data._rawValue
@@ -52,9 +48,14 @@ onBeforeMount(() => {
 
 
 watch(slug, async (newVal, oldVal) => {
-  console.log({ newVal, oldVal, slig: slug.value })
+  console.log({ newVal, oldVal, slug: slug.value })
   getDataAndRefresh()
 })
+
+// watch(route, async (newVal, oldVal) => {
+//   console.log({ newVal, oldVal, route: route.path })
+//   // getDataAndRefresh()
+// })
 
 
 // console.log({ articleData: articleData.value })

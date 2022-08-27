@@ -3,7 +3,7 @@
     <a class="no-underline menu-link" :href="url">{{ text }}</a>
   </div>
   <div class="nav-link" v-else>
-    <NuxtLink class="no-underline menu-link" :to="url">{{ text }}</NuxtLink>
+    <NuxtLink class="no-underline menu-link" :to="`/${url}`">{{ text }}</NuxtLink>
   </div>
 </template>
 
