@@ -29,7 +29,7 @@ logo.value = headerDataMain.image
 
 const getProgramData = async () => {
   try {
-    const query = groq`*[_type=='programteil'] {
+    const query = groq`*[_type=='programteil'] | order(order asc)  {
   ...,
   events[]-> {
     ...,
