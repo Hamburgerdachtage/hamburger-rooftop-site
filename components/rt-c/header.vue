@@ -60,6 +60,7 @@ header.main-header {
     height: 370px;
     width: 370px;
     z-index: 101;
+    @include transition();
 
     @include breakpoint(tablet, down) {
       height: 141px;
@@ -69,6 +70,9 @@ header.main-header {
     &svg {
 
       background-color: aqua;
+    }
+    &:hover {
+      transform: scale(1.1);
     }
   }
 

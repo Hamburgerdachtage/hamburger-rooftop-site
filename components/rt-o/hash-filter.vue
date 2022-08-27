@@ -70,7 +70,7 @@ function handleClick(hash) {
   height: 268px;
   width: 268px;
   border-radius: 16px;
-  margin: $space-small;
+  margin: $space-small $space-smaller;
   color: $bismark;
 
   @include transition();

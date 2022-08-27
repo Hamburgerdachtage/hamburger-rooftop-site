@@ -27,10 +27,11 @@
       </div>
 
       <div v-if="location" class="location"><b>Ort:</b> {{ location }}</div>
+      <div v-if="startPoint" class="startPoint"><b>Startpunkt:</b> {{ startPoint }}</div>
 
       <rt-o-event-times :times="[...times]" />
       <div v-if="length" class="length"><b>Dauer:</b> {{ length }}</div>
-      <div v-if="themes.length > 0" class="themes"><b>Themes: </b>
+      <div v-if="themes.length > 0" class="themes"><b>Themen: </b>
         <template v-for="theme in themes" :key="theme._key">
           <span class="theme">{{ theme.theme }}</span>
         </template>
@@ -61,6 +62,7 @@ const props = defineProps({
   length: { type: String, default: null },
   themes: { type: Array, default: () => ([]) },
   location: { type: String, default: null },
+  startPoint: { type: String, default: null },
   tips: { type: String, default: null },
   costs: { type: String, default: null },
   reservationLink: { type: Object, default: null }
