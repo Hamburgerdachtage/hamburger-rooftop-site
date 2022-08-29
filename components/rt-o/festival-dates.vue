@@ -119,6 +119,8 @@ function getDaysBetween(startDate: Date, endDate: Date) {
       overflow: hidden;
       @include shadow-hover();
 
+
+
       @include breakpoint(tablet, down) {
         width: 100px;
         height: 100px;
@@ -146,6 +148,7 @@ function getDaysBetween(startDate: Date, endDate: Date) {
         margin: 8px auto auto auto;
         font-size: 15px;
         font-weight: bold;
+        margin-bottom: 1.8rem;
       }
 
       .is-today {

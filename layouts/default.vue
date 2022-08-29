@@ -1,8 +1,8 @@
 <template>
   <div class="outside">
-    <div class="nav-wrapper flex-row-reverse">
+    <div class="nav-wrapper flex-row-reverse" >
       <rt-o-hamburger @open="toggleNav" @close="toggleNav" />
-      <rt-o-slide-out :show="showNav" class="bg-mintDark">
+      <rt-o-slide-out :show="showNav" class="bg-mintDark" :class="{closed: !showNav}">
         <rt-c-nav-links />
       </rt-o-slide-out>
     </div>
@@ -67,7 +67,9 @@ navData.value = await getNavData()
     overflow: hidden;
   }
 }
-
+.slideout.closed {
+  height: 10px;
+}
 
 .default-layout {
   z-index: 100;
@@ -84,7 +86,7 @@ navData.value = await getNavData()
   }
 
   main {
-    margin: 0 auto;
+    margin: 0 auto $space-massive auto;
     max-width: $inner-container;
     min-height: calc(100vh - (176px * 3));
 

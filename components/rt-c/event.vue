@@ -78,7 +78,9 @@ const isMobile = computed(() => {
 
 <style scoped lang="scss">
 @import "../../assets/styles/index.scss";
-
+a.btn.event {
+  margin-top: calc($space-smaller + 1em);
+}
 .event {
   margin-top: $space-xlarge;
 
@@ -93,7 +95,7 @@ const isMobile = computed(() => {
     width: 268px;
     height: 268px;
     margin: $space-large $space-medium auto 0;
-
+    border-bottom: 4px solid $mint-dark;
     @include breakpoint(mobile, down) {
       width: 121px;
       height: 121px;
@@ -115,7 +117,9 @@ const isMobile = computed(() => {
   }
 
   .event-body {
-
+    >h3 {
+      margin-top: $space-medium;
+    }
 
     // .desktop-hr {
     //   display: block;

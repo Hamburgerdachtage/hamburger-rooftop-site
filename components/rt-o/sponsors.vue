@@ -41,7 +41,7 @@ const sponsorsData = await useSimpleSanity('sponsor')
 @import "../../assets/styles/index.scss";
 
 .sponsors {
-  margin: $space-xxlarge auto;
+  margin: $space-xxlarge auto 0 auto;
 
   .sponsor-text {
     font-weight: bold;

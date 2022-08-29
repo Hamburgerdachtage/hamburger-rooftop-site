@@ -30,15 +30,16 @@ const props = defineProps({
 @import "../../assets/styles/index.scss";
 
 .faq-wrapper {
+  
   .faq {
-
+    margin-bottom: $space-xxlarge;
 
     .section-headline {
       @include fontSize(h3);
     }
 
     .q-and-a {
-      margin: auto auto auto $space-medium;
+      margin: auto;
 
 
     }

@@ -27,8 +27,8 @@ defineProps({
   top: -605px;
   right: 0;
   opacity: 0;
-  height: 600px;
-  width: 375px;
+  height: 100vh;//600px;
+  width: 100vw;//375px;
   transition: 500ms ease-in-out;
   z-index: 201;
 

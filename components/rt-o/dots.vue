@@ -1,9 +1,9 @@
 <template>
   <div class="header-dots">
     <div class="dot d1 bg-mintLight"></div>
-    <div class="dot d2 bg-magenta"></div>
+    <div class="dot d2 bg-skylark"></div>
     <div class="dot d3 bg-skylark"></div>
-    <div class="dot d4 bg-magenta"></div>
+    <div class="dot d4 bg-pink"></div>
     <slot />
   </div>
 </template>

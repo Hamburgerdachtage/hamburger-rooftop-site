@@ -1,7 +1,9 @@
 <template>
   <div class="q-a">
-    <div class="question-wrapper" :class="{ open }">
-      <h2 class="question" @click="handleClick">{{ question }}</h2>
+    <div class="question-wrapper flex-row" :class="{ open }" @click="handleClick">
+      <h2 class="question" >{{ question }}</h2>
+      <span v-if="!open" class="plus">+</span>
+      <span v-else class="minus">-</span>
     </div>
     <Transition>
       <div class="answer" v-show="open" :class="{ open }">
@@ -34,47 +36,48 @@ function handleClick() {
 @import "../../assets/styles/index.scss";
 
 .q-a {
-  margin-bottom: $space-large;
+  // margin-bottom: $space-large;
 }
 
 .question-wrapper {
   width: 90%;
-  padding: $space-small;
+  padding: $space-tiny 0px;
+  border-top: 2px solid $black;
+  align-items:center;
+  justify-items: space-between;
 
-  background-color: $mint-light;
-
-  border-radius: 16px;
   @include transition();
-
-  &:hover {
-    @include shadow-hover();
-
+  .plus, .minus {
+    font-size: 36px;
+    font-weight: bold;
+    margin: auto 0 auto auto;
   }
 
   &.open {
-    @include shadow-hover();
-    background-color: $mint-dark;
-
-    .question {
-      color: $white;
-    }
+   .question, .minus {
+    color: $magenta;
+   }
   }
+
 }
 
 .question {
   @include fontSize(p);
   font-weight: bold;
   margin: 0px;
-  color: $bismark;
+  color: $black;
 }
 
 .answer {
 
   width: 80%;
-  padding: 0 $space-medium;
+
   @include transition();
 
-  &.open {}
+  &.open {
+    margin-top: -$space-small;
+    margin-bottom: $space-large;
+  }
 }
 
 .v-enter-active,

@@ -8,11 +8,14 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  external: Boolean,
+const props = defineProps({ external: Boolean,
   url: { type: String, default: null },
   text: { type: String, default: null },
 
+})
+const external = computed(() => {
+  const matches = ["http", 'www', '.com', '.de']
+  return matches.some(m=> props.url.includes(m))
 })
 
 </script>
